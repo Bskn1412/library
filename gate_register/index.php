@@ -5,26 +5,10 @@
 <title>Home</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link href="default.css" rel="stylesheet" type="text/css" media="screen" />
 
 <style type="text/css" >
 
-#nam
-{
- font-family:Arial, Helvetica, sans-serif;
- font-size:large;
- color:#FF0000;
- bottom:5px;
- position:relative;
-	
-}
-#nam1
-{
-	font-family:"Times New Roman", Times, serif;
-	font-size:x-large;
-	font-style:italic;
-	color:#0066FF;
-}
+
 
 
 
@@ -118,37 +102,82 @@
 50%{opacity:0.8;}
 100%{opacity:1.0;}
 }
-
-
-#sam1
-{
-position:relative;
-top:-139px;
+*{
+	margin: 0;
 }
 
-#submit:hover
-{
-border:thick gray solid ; 
-background-color:#CCCC;
+body{
+	background-color: rgb(55, 75, 72);
 }
 
-.upgrade{
-	position: absolute;
+#menu ul li a{
+	text-decoration: none;
+	font-size:23px;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	color: white;
+	width: 100%;
+}
+
+#menu ul li a:hover{
+  color:rgb(0, 217, 69);
+}
+
+#menu ul{
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: black;
+	display: flex;
+	flex-direction: row;
+	padding: 15px 10px;
+}
+
+#head{
+	padding: 45px;
+	font-size: bold;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-align: center;
+	color: rgb(0, 255, 217);
+}
+
+.hero{
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	flex-direction: row;
+	width: 100%;
+}
+.img{
+	display: flex;
 	justify-content: center;
 	align-items: center;
-	right: 0;
+
 }
+img {
+	width: 58%;
+	border-radius: 1rem;
+}
+
+.old,.new{
+	padding: 10px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 1.4em;
+	min-width: 200px;
+	margin: 5px;
+	color: white;
+	letter-spacing: 1px;
+
+}
+
+
 
 
 </style>
 
 </head>
 <body>
-<!-- start wrapper -->
-<div id="wrapper">
 	<!-- start menu -->
 	<div id="menu">
-		<ul>
+		<ul type="none">
 			<li><a href="index.php">Home</a></li>
 			<li><a href="studentstatus.php">Student status</a></li>
 			<li><a href="facultystatus.php">Faculty Status</a></li>
@@ -158,27 +187,30 @@ background-color:#CCCC;
 	</div>
 	<!-- end menu -->
 	<!-- start header -->
-	<div id="header">
-		<div id="logo">
+	<div id="head">
 			<h1>Automatic Library Visitors Counter</h1>
-		</div>
-		
 	</div>
 	<!-- end header -->
 	<!-- start page -->
-	<center><div style="width:100%;height:520px">
- <img src="images/lib.jpg" width="60%" height="90%"/></div></center>
-</div>
-<div id="sam1"  style="position: absolute; width: 205px; height: 100px; z-index: 1; left: 22px; top: 500px;" id="layer1">
+    <div class="hero">
+	  <div class="old" >
+       <div id="nam" style="color: yellow;">Developed By:</div><br>
+       <div id="nam1">P. Pavan Kumar</div>
+       <div id="nam1">A. Asif</div>
+       <div id="nam1">K. Balaji</div>
+       <div id="nam1">P. Mounika</div>
+       <div id="nam1">V. L. Prathyusha</div>
+      </div>
+	  <div class="img">
+	    <img src="images/lib.jpg" />
+      </div>
+	  <div class="new" >
+       <div id="nam" style="color: greenyellow;">Upgraded By:</div><br>
+       <div id="nam1">A. Yaswanth Kiran</div>
+	   <div id="nam1">B. Syam</div>
+       <div id="nam1">B. Sai Karthik Nehuru</div>
+      </div>
+	</div>
 
-<div id="nam">Developed By:</div><div id="space"></div>
-
-<div id="nam1">P. Pavan Kumar</div><div id="space"></div>
-<div id="nam1">A. Asif</div><div id="space"></div>
-<div id="nam1">K. Balaji</div><div id="space"></div>
-<div id="nam1">P. Mounika</div><div id="space"></div>
-<div id="nam1">V. L. Prathyusha</div>
-
-</div>
 </body>
 </html>
