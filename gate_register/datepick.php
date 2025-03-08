@@ -8,12 +8,12 @@ include("include/dbconn.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day-Wise Details</title>
-    <link rel="stylesheet" href="default.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="main.css" type="text/css" media="screen">
     <link rel="stylesheet" href="datepick.css" type="text/css" media="screen">
   </head>
 <body>
     <div id="menu">
-        <ul>
+        <ul type="none">
             <li><a href="index.php">Home</a></li>
             <li><a href="studentstatus.php">Student Status</a></li>
             <li><a href="facultystatus.php">Faculty Status</a></li>
@@ -22,16 +22,16 @@ include("include/dbconn.php");
         </ul>
     </div>
     
-    <div id="header">
-        <div id="logo">
+    <div id="head">
             <h1>Automatic Library Visitors Counter</h1>
-        </div>
     </div>
     
     <div class="container">
+      <div class="login">
         <div class="form-container">
             <h1>Day Wise Details</h1>
             <form method="post" class="yo">
+                <div class="part">
                 <label>From:</label>
                 <input type="date" name="fromdate" value="<?php echo $_POST['fromdate'] ?? ''; ?>" required>
                 <label>To:</label>
@@ -58,10 +58,11 @@ include("include/dbconn.php");
                     <option>3</option>
                     <option>4</option>
                 </select>
-                
+                </div>
                 <input class="but" type="submit" name="datesubmit" value="Submit">
             </form>
         </div>
+      </div>
     </div>
     
     <?php
@@ -74,7 +75,8 @@ include("include/dbconn.php");
         if (empty($fromdate) || empty($todate)) {
             echo "<script>alert('Please select From and To dates');</script>";
         } else {
-            echo "<center><table border='2' class='myTable'>
+            echo "<center><table class='contain-table'>
+                  <thead>
                     <tr>
                         <th>Sno</th>
                         <th>Date</th>
@@ -84,7 +86,7 @@ include("include/dbconn.php");
                         <th>Year</th>
                         <th>In Time</th>
                         <th>Out Time</th>
-                    </tr>";
+                    </tr> </thead><tbody>";
             
             $query = "SELECT * FROM main WHERE date BETWEEN '$fromdate' AND '$todate'";
             if ($branch !== '0') {
@@ -109,7 +111,7 @@ include("include/dbconn.php");
                     </tr>";
                 $sno++;
             }
-            echo "</table></center>";
+            echo "</tbody></table></center>";
         }
     }
     ?>

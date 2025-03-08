@@ -8,7 +8,7 @@ include("include/dbconn.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faculty Status</title>
-    <link href="default.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="main.css" rel="stylesheet" type="text/css" media="screen" />
     <link rel="stylesheet" href="facul.css">
 </head>
 <body>
@@ -26,7 +26,7 @@ if (isset($_POST['statussubmit'])) {
 ?>
 
 <div id="menu">
-    <ul>
+    <ul type="none">
         <li><a href="index.php">Home</a></li>
         <li><a href="studentstatus.php">Student Status</a></li>
         <li><a href="facultystatus.php">Faculty Status</a></li>
@@ -35,10 +35,8 @@ if (isset($_POST['statussubmit'])) {
     </ul>
 </div>
 
-<div id="header">
-    <div id="logo">
+<div id="head">
         <h1>Automatic Library Visitors Counter</h1>
-    </div>
 </div>
 
 <div class="container">
@@ -46,27 +44,31 @@ if (isset($_POST['statussubmit'])) {
         <h1>Faculty Status</h1>
         <form method="post" action="">
             <input type="text" name="facno" placeholder="Faculty No" required>
-            <input type="submit" name="statussubmit" value="Submit">
+            <input type="submit" class="but" name="statussubmit" value="Submit">
         </form>
         
+        <div class="details">
         <?php if (isset($_POST['statussubmit'])): ?>
-            <p><strong>Name:</strong> <?php echo htmlspecialchars($res1['name'] ?? 'N/A'); ?></p>
-            <p><strong>Branch:</strong> <?php echo strtoupper(htmlspecialchars($res1['branch'] ?? 'N/A')); ?></p>
-            <p><strong>Total Visits:</strong> <?php echo $count; ?></p>
+            <p><strong>Name:</strong> <p id="sam"><?php echo htmlspecialchars($res1['name'] ?? 'N/A'); ?></p></p>
+            <p><strong>Branch:</strong><p id="sam"> <?php echo strtoupper(htmlspecialchars($res1['branch'] ?? 'N/A')); ?></p></p>
+            <p><strong>Total Visits:</strong> <p id="sam"><?php echo $count; ?></p></p>
         <?php endif; ?>
+        </div>
     </div>
 </div>
 
 <?php if (isset($_POST['statussubmit']) && $count > 0): ?>
     <center>
-        <table border="2" class="myTable">
+        <table class="contain-table">
+            <thead>
             <tr>
                 <th>Sno</th>
                 <th>Date</th>
                 <th>InTime</th>
                 <th>OutTime</th>
             </tr>
-            
+            </thead>
+            <tbody>            
             <?php $i = 1; while ($res = $query->fetch_assoc()): ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
@@ -75,6 +77,7 @@ if (isset($_POST['statussubmit'])) {
                     <td><?php echo $res['outtime'] !== "00:00:00" ? htmlspecialchars($res['outtime']) : "Still in Library"; ?></td>
                 </tr>
             <?php endwhile; ?>
+            </tbody>
         </table>
     </center>
 <?php endif; ?>

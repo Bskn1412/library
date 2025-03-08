@@ -8,14 +8,14 @@ include("include/dbconn.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Branch-Wise Details</title>
-    <link href="default.css" rel="stylesheet" type="text/css" />
-    <link href="bdetails.css" rel="stylesheet" type="text/css" />
-</head>
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <link rel="stylesheet" href="bdetails.css">
+    </head>
 <body>
 
 <!-- Navigation Menu -->
 <div id="menu">
-    <ul>
+    <ul type="none">
         <li><a href="index.php">Home</a></li>
         <li><a href="studentstatus.php">Student Status</a></li>
         <li><a href="facultystatus.php">Faculty Status</a></li>
@@ -25,17 +25,18 @@ include("include/dbconn.php");
 </div>
 
 <!-- Header -->
-<div id="header">
-    <div id="logo">
+<div id="head">
         <h1>Automatic Library Visitors Counter</h1>
-    </div>
 </div>
 
 <center>
-<h1><u>Branch Wise Details</u></h1>
 
 <!-- Form -->
+<div class="container">
+<div class="login">
 <form name="branchwisedetails" method="post" action="bdetails.php">
+    <h1>Branch Wise Details</h1>
+
     <div id="mainselection">
         <strong>Branch </strong>
         <select name="ugdrop" id="ugdrop">
@@ -73,8 +74,10 @@ include("include/dbconn.php");
 
     <br>
 
-    <input type="submit" name="ug" id="ug" value="Submit">
+    <input type="submit" name="ug" id="ug" class="but" value="Submit">
 </form>
+</div>
+</div>
 
 <br>
 
@@ -98,7 +101,8 @@ if (isset($_POST['ug'])) {
         $result = $conn->query($query);
         if ($result->num_rows > 0) {
 ?>
-            <table border="2" class="myTable">
+            <table class="contain-table">
+                <thead>
                 <tr>
                     <th>Sno</th>
                     <th>Date</th>
@@ -109,6 +113,8 @@ if (isset($_POST['ug'])) {
                     <th>InTime</th>
                     <th>OutTime</th>
                 </tr>
+                </thead>
+                <tbody>
                 <?php
                 $i = 1;
                 while ($res = $result->fetch_assoc()) {
@@ -128,6 +134,7 @@ if (isset($_POST['ug'])) {
                     }
                 }
                 ?>
+             </tbody>
             </table>
 <?php
         } else {

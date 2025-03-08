@@ -8,8 +8,9 @@ include("include/dbconn.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Status</title>
-    <link href="default.css" rel="stylesheet" type="text/css" media="screen" />
-    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <link rel="stylesheet" href="student.css" type="text/css" />
+
 </head>
 <body>
 
@@ -40,7 +41,7 @@ if(isset($_POST['statussubmit'])) {
 ?>
 
 <div id="menu">
-    <ul>
+    <ul type="none">
         <li><a href="index.php">Home</a></li>
         <li><a href="studentstatus.php">Student Status</a></li>
         <li><a href="facultystatus.php">Faculty Status</a></li>
@@ -49,19 +50,18 @@ if(isset($_POST['statussubmit'])) {
     </ul>
 </div>
 
-<div id="header">
-    <div id="logo">
+<div id="head">
         <h1>Automatic Library Visitors Counter</h1>
-    </div>
 </div>
 
 <div class="container">
     <div class="login">
         <h1>Student Status</h1>
-        <form method="post" action="">
+        <form method="post" action="#">
             <p><input type="text" name="roll" placeholder="Student Roll No" required></p>    
-            <p class="submit"><input type="submit" name="statussubmit" value="Submit"></p>
+            <p ><input type="submit" class="but" name="statussubmit" value="Submit"></p>
 
+            <div class="details">
             <?php if (!empty($student_data)): ?>
                 <p>Name:</p><div id="sam"><?= htmlspecialchars($student_data['name'] ?? 'N/A') ?></div>
                 <p>Year:</p><div id="sam"><?= htmlspecialchars($student_data['year'] ?? 'N/A') ?></div>
@@ -69,9 +69,8 @@ if(isset($_POST['statussubmit'])) {
                 <p>Total Visits:</p><div id="sam"><?= $count ?></div>
             <?php endif; ?>
 
-            <?php if (empty($student_data)) :?>
-              <p>Not Found</p>
-            <?php endif; ?>
+            
+            </div>
 
         </form>
     </div>
@@ -79,7 +78,8 @@ if(isset($_POST['statussubmit'])) {
 
 <?php if (!empty($visit_data)): ?>
     <center>
-        <table border="2" class="myTable">
+        <table class="contain-table">
+            <thead>
             <tr>
                 <th>Sno</th>
                 <th>Roll No</th>
@@ -87,6 +87,8 @@ if(isset($_POST['statussubmit'])) {
                 <th>In Time</th>
                 <th>Out Time</th>
             </tr>
+            </thead>
+            <tbody>
             <?php foreach ($visit_data as $index => $visit): ?>
                 <tr>
                     <td><?= $index + 1 ?></td>
@@ -96,6 +98,7 @@ if(isset($_POST['statussubmit'])) {
                     <td><?= ($visit['outtime'] != "00:00:00") ? htmlspecialchars($visit['outtime']) : "Still in Library" ?></td>
                 </tr>
             <?php endforeach; ?>
+            </tbody>
         </table>
     </center>
 <?php endif; ?>
