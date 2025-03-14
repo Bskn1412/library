@@ -15,7 +15,6 @@
         .form-group {
             margin-bottom: 20px;
         }
-
         label {
             font-weight: bold;
             display: block;
@@ -31,7 +30,7 @@
             box-sizing: border-box;
             background-color:rgb(255, 255, 255);
         }
-
+  
         button[type=submit] {
             background-color: #238636;
             color: white;
@@ -45,6 +44,7 @@
 
         button[type=submit]:hover {
             background-color: #45a049;
+          
         }
 
         .message {
@@ -87,11 +87,19 @@
             color:rgb(213, 238, 23);
         }
         .csv{
-            align-items: center;
-            justify-content: center;
-            display: flex;
+            margin: auto;
+            width: 50%;
+            padding: 10px;
             font-weight: bold;
             color: rgb(213, 238, 23);
+        }
+        .csv h3{
+            text-align: center;
+        }
+        .container{
+            margin: auto;
+            width: 50%;
+            padding: 10px;
         }
 
     </style>
@@ -100,7 +108,7 @@
 <body>
         <!-- <h2>Student Information Form</h2> -->
         <h2>Manual Student Entry</h2>
-        
+        <div class="container">  
         <form action="../controller/student_insert.php" method="post">
             <label for="roll">Roll Number :</label>
             <input type="text" name="roll" required><br><br>
@@ -130,7 +138,7 @@
             </select><br>
             <button type="submit" name="submit_manual">Submit Manually</button>
         </form>
-
+        </div>
         <hr>
         <div class="csv">
         <form action="../controller/student_insert.php" method="post" enctype="multipart/form-data">
