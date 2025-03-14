@@ -1,0 +1,176 @@
+/* Table Styling */
+.myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.myTable th, .myTable td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+}
+
+.myTable th {
+  background: linear-gradient(to right, #007BFF, #0056b3);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.myTable tr:nth-child(even) {
+  background: #A4D1FF;
+}
+
+.myTable tr:nth-child(odd) {
+  background: #EAF4FF;
+}
+
+.myTable tr:hover {
+  background: #f1f1f1;
+  transition: 0.3s;
+}
+
+
+/* Center the container */
+.container {
+  margin: 50px auto;
+  width: 90%;
+  max-width: 640px;
+}
+
+/* Login Box */
+.login {
+  position: relative;
+  margin: 0 auto;
+  padding: 25px;
+  width: 320px;
+  background: linear-gradient(135deg, #0ca3d2, #0077b6);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.login:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+.yo,.but{
+  margin: 10px;
+}
+/* Login Heading */
+.login h1 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.2);
+  margin-bottom: 15px;
+}
+
+/* Input Fields */
+.login input[type="text"], 
+.login input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.login input[type="text"]:focus, 
+.login input[type="password"]:focus {
+  border-color: #7dc9e2;
+  box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+}
+
+/* Submit Button */
+input[type="submit"] {
+  padding: 10px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #0077b6, #0096c7);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(135deg, #0096c7, #00b4d8);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"]:active {
+  background: #005f8d;
+  transform: scale(0.98);
+}
+
+/* Remember Me Checkbox */
+.login p.remember_me {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #ddd;
+}
+
+.login p.remember_me input {
+  margin-right: 5px;
+}
+
+/* Help Links */
+.login-help {
+  margin: 20px 0;
+  font-size: 12px;
+  color: white;
+}
+
+.login-help a {
+  color: #cce7fa;
+  text-decoration: none;
+}
+
+.login-help a:hover {
+  text-decoration: underline;
+}
+
+/* Styling for Placeholder */
+::-webkit-input-placeholder {
+  color: #bbb;
+}
+
+:-moz-placeholder {
+  color: #bbb !important;
+}
+
+/* Body Styling */
+body {
+  font: 14px "Lucida Grande", Tahoma, Verdana, sans-serif;
+  text-align: center;
+}
+
+/* Dropdown Styling */
+#mainselection {
+  overflow: hidden;
+  width: 120px;
+  padding: 5px;
+  border-radius: 9px;
+  box-shadow: 1px 1px 11px #330033;
+  background: url("arrow.gif") no-repeat scroll 100px 5px;
+  cursor: pointer;
+}
