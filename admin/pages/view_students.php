@@ -35,31 +35,29 @@ $conn->close();
     <title>View Students by Year</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #3d444db3;
             padding: 20px;
+            color: rgb(255, 255, 255);
         }
 
-        .container {
-            max-width: 800px;
+        .container{
             margin: auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            padding: 10px;
         }
 
         h2 {
             margin-bottom: 20px;
             font-size: 1.6em;
-            color: #333;
+            color:rgb(213, 238, 23);
         }
 
         label {
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
-            color: #555;
+            color: rgb(255, 255, 255);
         }
 
         select,
@@ -73,7 +71,7 @@ $conn->close();
         }
 
         button[type=submit] {
-            background-color: #007bff;
+            background-color: #238636;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -83,13 +81,16 @@ $conn->close();
         }
 
         button[type=submit]:hover {
-            background-color: #0056b3;
+            background-color: #45a049;
         }
 
         .error {
             color: red;
             font-size: 1.2em;
             margin-top: 10px;
+        }
+        .error-message {
+            color: red;
         }
 
         table {
@@ -113,29 +114,15 @@ $conn->close();
         table td {
             background-color: #f9f9f9;
         }
-
-        /* Navigation Bar Styles */
-        .nav-buttons {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .nav-buttons a {
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 12px 25px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 8px;
-            display: inline-block;
-        }
-
-        .nav-buttons a:hover {
-            background-color: #0056b3;
-        }
-
         hr {
             margin: 40px 0;
+        }
+        .container a{
+            color:rgb(37, 193, 210);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -144,17 +131,6 @@ $conn->close();
 
     <div class="container">
         <h2>View Students by Year</h2>
-
-        <!-- Navigation Bar -->
-        <div class="nav-buttons">
-            <a href="insert_students.php">Student Insertion</a>
-            <a href="insert_faculty.php">Faculty Insertion</a>
-            <a href="batch_update.php">Batch Update</a>
-            <a href="delete_student.php">Student Deletion</a>
-            <a href="delete_faculty.php">Faculty Deletion</a>
-            <a href="view_students.php">View Students</a>
-        </div>
-
         <!-- Form to select year -->
         <form action="" method="POST">
             <label for="year">Select Year:</label>

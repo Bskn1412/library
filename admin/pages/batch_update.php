@@ -71,33 +71,31 @@ $conn->close();
     <title>Promote/Demote Students</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #3d444db3;
             padding: 20px;
+            color: rgb(255, 255, 255);
         }
 
         .container {
             max-width: 800px;
-            margin: auto;
-            background-color: #fff;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: auto;
         }
 
         h1,
         h2,
         h3 {
             margin-bottom: 20px;
-            font-size: 1.6em;
-            color: #333;
+            color:rgb(213, 238, 23);
         }
 
         label {
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
-            color: #555;
+            color: rgb(255, 255, 255);
         }
 
         input[type=text],
@@ -111,8 +109,9 @@ $conn->close();
         }
 
         button[type=submit] {
-            background-color: #007bff;
+            background-color: #238636;
             color: white;
+            margin-right: 20px;
             padding: 12px 20px;
             border: none;
             border-radius: 6px;
@@ -121,7 +120,7 @@ $conn->close();
         }
 
         button[type=submit]:hover {
-            background-color: #0056b3;
+            background-color: #45a049;
         }
 
         .status {
@@ -135,33 +134,13 @@ $conn->close();
         a {
             display: inline-block;
             margin-top: 20px;
-            color: #007bff;
+            color:rgb(37, 193, 210);
             text-decoration: none;
         }
 
         a:hover {
             text-decoration: underline;
         }
-
-        .nav-buttons {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .nav-buttons a {
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 12px 25px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 8px;
-            display: inline-block;
-        }
-
-        .nav-buttons a:hover {
-            background-color: #0056b3;
-        }
-
         hr {
             margin: 40px 0;
         }
@@ -171,19 +150,7 @@ $conn->close();
 <body>
 
     <div class="container">
-        <h1>Admin Dashboard</h1>
-        <div class="nav-buttons">
-            <!-- Navigation Buttons -->
-            <a href="insert_students.php">Student Insertion</a>
-            <a href="insert_faculty.php">Faculty Insertion</a>
-            <a href="batch_update.php">Batch Update</a>
-            <a href="delete_student.php">Student Deletion</a>
-            <a href="delete_faculty.php">Faculty Deletion</a>
-            <a href="view_students.php">View Students</a>
-        </div>
-
         <h2>Promote / Demote Students</h2>
-
         <?php if (!empty($message)): ?>
             <p class="status"><?php echo htmlspecialchars($message); ?></p>
         <?php endif; ?>

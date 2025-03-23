@@ -45,19 +45,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link rel="stylesheet" href="../assets/style.css">
-</head>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #3d444db3;
+            padding: 20px;
+            color: rgb(255, 255, 255);
+        }
+        .container {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
 
+        input[type=text],
+        input[type=password]
+         {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color:rgb(255, 255, 255);
+        }
+        button[type=submit] {
+            background-color: #238636;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button[type=submit]:hover {
+            background-color: #45a049; 
+        }
+        h2{
+            text-align: center; 
+            color:rgb(213, 238, 23);
+        }
+    </style>
+    </head>
 <body>
-    <div class="login-container">
+    <div class="container">
         <h2>Admin Login</h2>
         <?php
         if (isset($_SESSION['error'])) {
@@ -67,10 +108,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
         <form method="POST" action="">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" required><br><br>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required><br>
 
             <button type="submit">Login</button>
         </form>
