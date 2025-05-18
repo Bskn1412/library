@@ -1,5 +1,7 @@
 ﻿<?php 
-include("include/dbconn.php");
+include(__DIR__ . '/../admin/config/dbconn.php');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +19,7 @@ include("include/dbconn.php");
 if (isset($_POST['statussubmit'])) {
     $roll = mysqli_real_escape_string($conn, $_POST['facno']);
     
-    $query1 = $conn->query("SELECT * FROM `staff` WHERE `number` = '$roll'");
+    $query1 = $conn->query("SELECT * FROM `staff` WHERE `rollnum` = '$roll'");
     $query  = $conn->query("SELECT * FROM `main` WHERE `rollnum` = '$roll' ORDER BY `date` DESC");
     
     $count  = $query->num_rows;
@@ -32,6 +34,7 @@ if (isset($_POST['statussubmit'])) {
         <li><a href="facultystatus.php">Faculty Status</a></li>
         <li><a href="datepick.php">Day Wise Details</a></li>
         <li><a href="bdetails.php">Branch Wise Details</a></li>
+        <li><a href="status.php">Stats</a></li>
     </ul>
 </div>
 

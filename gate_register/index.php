@@ -12,10 +12,11 @@
 	<div id="menu">
 		<ul type="none">
 			<li><a href="index.php">Home</a></li>
-			<li><a href="studentstatus.php">Student status</a></li>
+			<li><a href="studentstatus.php">Student Status</a></li>
 			<li><a href="facultystatus.php">Faculty Status</a></li>
 			<li><a href="datepick.php">Day Wise Details</a></li>
-			<li><a href="bdetails.php">Branch wise Details</a></li>
+			<li><a href="bdetails.php">Branch Wise Details</a></li>
+			<li><a href="status.php">Stats</a></li>
 		</ul>
 	</div>
 	<!-- end menu -->
@@ -39,9 +40,9 @@
       </div>
 	  <div class="new" >
        <div id="nam" style="color: greenyellow;">Upgraded By:</div><br>
+	   <div id="nam1">B. Syam</div>
        <div id="nam1">A. Yaswanth Kiran</div>
-	     <div id="nam1">B. Syam</div>
-       <div id="nam1">B. Sai Karthik Nehuru</div>
+       <div id="nam1">B. Sai Karthik Nehru</div>
       </div>
 	</div>
 

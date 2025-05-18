@@ -65,22 +65,4 @@ body{
   height: 100%;
 
 }
-/* 
 
-@media (max-width: 250px) {
-  #menu ul li a{
-    font-size:medium;
-  }
-  .old,.new{
-    font-size: 1.1em;
-    min-width: 100px;
-  }
-  #head{
-    margin: 0;
-  }
-  .img img {
-    max-height:450px ;
-    max-width: 320px;
-    border-radius: 1rem;
-  }
-} */

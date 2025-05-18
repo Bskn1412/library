@@ -1,66 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+   <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('library.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
 
-        .container {
-            text-align: center;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 40px;
+        border-radius: 10px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+        backdrop-filter: blur(1px); /* Initial blur */
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+        gap: 20px;
+        color: rgb(0, 0, 0);
+        transition: 0.5s ease;
+    }
 
-        h1 {
-            margin-bottom: 20px;
-        }
+    .container:hover {
+        backdrop-filter: blur(8px); /* Increase blur on hover */
+        transform: translate(-50%, -50%) scale(1.03); /* Subtle zoom */
+    }
 
-        a {
-            text-decoration: none;
-            padding: 15px 25px;
-            display: inline-block;
-            margin: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 5px;
-        }
+    .container h1 {
+        margin: 0;
+    }
 
-        a:hover {
-            background-color: #45a049;
-        }
+    .container a {
+        display: block;
+        width: 200px;
+        padding: 10px;
+        background:rgb(17, 179, 49);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
 
-        .disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-    </style>
+    .container a:hover {
+         background:rgb(49, 210, 79);
+    }
+    .container h1:hover{
+        color: white;
+    }
+    .container p:hover{
+        color: white;
+    }
+</style>
 </head>
-
 <body>
     <div class="container">
-        <h1>Welcome to Your Project</h1>
+        <h1>WELCOME TO LIBRARY</h1>
         <p>Please choose an option:</p>
         <!-- Route to Admin (Requires login) -->
-        <a href="admin/pages/login.php">Admin</a>
-
-        <!-- Route to Libb (Requires login) -->
-        <a href="libb/login.php">Libb</a>
+        <a href="admin/login.php">Admin</a>
 
         <!-- Route to View (Does not require login) -->
-        <a href="gate_register/today_stats.php">View Statistics</a>
+        <a href="gate_register/index.php">Gate Register</a>
+
+        <!-- Route to Scanner page (No need of Login) -->
+        <a href="scanner_page/index.php">Scanner </a>
     </div>
 </body>
-
 </html>

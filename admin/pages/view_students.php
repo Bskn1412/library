@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/../../config/dbconn.php';
+include(__DIR__ . '/../config/session_check.php');
+include(__DIR__ . '/../../dbconn.php');
 
 $students = [];
 $message = "";
@@ -36,9 +37,8 @@ $conn->close();
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
-            background-color: #3d444db3;
             padding: 20px;
-            color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
         }
 
         .container{
@@ -48,6 +48,7 @@ $conn->close();
         }
 
         h2 {
+            text-align: center;
             margin-bottom: 20px;
             font-size: 1.6em;
             color:rgb(213, 238, 23);
@@ -173,10 +174,13 @@ $conn->close();
                 </tbody>
             </table>
         <?php endif; ?>
-
-        <a href="dashboard.php">Back to Dashboard</a>
+       
     </div>
-
 </body>
-
 </html>
+
+
+
+
+
+

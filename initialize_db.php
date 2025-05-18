@@ -61,11 +61,13 @@ if (!file_exists($flag_file)) {
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1",
 
         "CREATE TABLE IF NOT EXISTS staff (
-            number VARCHAR(20) NOT NULL,
+            rollnum VARCHAR(20) NOT NULL,
             name VARCHAR(100) NOT NULL,
+            title ENUM('Sir', 'Madam') NOT NULL,  
             branch VARCHAR(20) NOT NULL,
-            PRIMARY KEY (number)
+            PRIMARY KEY (rollnum)
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1",
+
 
         "CREATE TABLE IF NOT EXISTS student (
             rollnum VARCHAR(15) NOT NULL,
@@ -74,7 +76,65 @@ if (!file_exists($flag_file)) {
             branch VARCHAR(20) NOT NULL,
             batch INT(11) DEFAULT NULL,
             PRIMARY KEY (rollnum)
-        ) ENGINE=InnoDB DEFAULT CHARSET=latin1"
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1",
+
+        "CREATE TABLE IF NOT EXISTS `branches` (
+        `ug` varchar(20) NOT NULL,
+        `pg` varchar(20) NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;",
+
+        "
+        INSERT INTO `branches` (`ug`, `pg`) VALUES
+        ('cse', ''),
+        ('ece', 'Mtech-ece'),
+        ('mech', 'Mtech-cse'),
+        ('it', 'Mtech-eee'),
+        ('eee', 'mca'),
+        ('civil', 'mba'),
+        ('BS&H', ''),
+        ('', 'M.TECH VLSI & ES'),
+        ('', 'M.TECH CSE-AIML'),
+        ('', 'M.TECH PEED'),
+        ('', 'M.TECH SE'),
+        ('', 'M.TECH MD'),
+        ('IOT', '--'),
+        ('AIDS', '--');",
+
+        "
+        CREATE TABLE IF NOT EXISTS today (
+        date DATE NOT NULL,
+        branch VARCHAR(50) NOT NULL,
+        total INT NOT NULL,
+        PRIMARY KEY (date, branch)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;",
+
+        "CREATE TABLE IF NOT EXISTS monthly_stats (
+         year INT NOT NULL,
+         month INT NOT NULL,
+         branch VARCHAR(50) NOT NULL,
+         total INT NOT NULL,
+         PRIMARY KEY (year, month, branch)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;",
+
+        "CREATE TABLE IF NOT EXISTS yearly_stats (
+         year INT NOT NULL,
+         branch VARCHAR(50) NOT NULL,
+         total INT NOT NULL,
+         PRIMARY KEY (year, branch)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;",
+
+
+
+        "CREATE TABLE IF NOT EXISTS staff_logs (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            date DATE NOT NULL,
+            name VARCHAR(100) NOT NULL,
+            branch VARCHAR(20) NOT NULL,
+            rollnum VARCHAR(20) NOT NULL,
+            intime TIME NOT NULL,
+            outtime TIME NOT NULL 
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1 "
+
     ];
 
     foreach ($tables as $sql) {

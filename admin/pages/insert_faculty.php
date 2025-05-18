@@ -1,3 +1,8 @@
+<?php
+include(__DIR__ . '/../config/session_check.php');
+include(__DIR__ . '/../../dbconn.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +13,6 @@
     <style>
       body {
             font-family: 'Times New Roman', Times, serif;
-            background-color: #3d444db3;
             padding: 20px;
             color: rgb(255, 255, 255);
         }
@@ -52,11 +56,13 @@
         }
 
         .message {
-            margin-top: 20px;
+            top: 0;
+            right: 0;
             font-size: 1.2em;
             color: green;
-            display: none;
+            position: absolute;
         }
+
         
         .error-message {
             color: red;
@@ -84,10 +90,15 @@
 <body>
 <h2>Insert Faculty Manually</h2>
     <div class="container">
-       
         <form action="../controller/faculty_insertion.php" method="POST">
             <label for="number">Faculty Number:</label>
             <input type="text" id="number" name="number" required><br><br>
+
+            <label for="title">Title:</label>
+            <select name="title" required><br><br>
+                <option value="Sir">Sir</option>
+                <option value="Madam">Madam</option>
+            </select><br><br>
 
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
@@ -98,27 +109,47 @@
             <button type="submit" name="submit_manual">Insert Faculty</button>
         </form>
         </div>
-        <hr>
-
-        
+ 
         <div class="csv">
         <form action="../controller/faculty_insertion.php" method="POST" enctype="multipart/form-data">
         <h3>Upload CSV File</h3>    
         <!-- <label for="csv_file">Select CSV File:</label> -->
-            <input type="file" id="csv_file" name="csv_file" required>
-
+            <input type="file" id="csv_file" name="csv_file" required><br><br>
             <button type="submit" name="submit_csv">Upload</button>
         </form>
 
-        <div class="message">
+     <!-- Message displayed after form submission -->
+        <div class="message" id="message">
             <?php
             if (isset($_GET['message'])) {
-                echo "<p>" . htmlspecialchars($_GET['message']) . "</p>";
+                echo htmlspecialchars($_GET['message']);
+            }
+            if (isset($_GET['error'])) {
+                echo "<span class='error-message'>" . htmlspecialchars($_GET['error']) . "</span>";
             }
             ?>
         </div>
-       
     </div>
+    <script>
+        // Show message on page load
+        const messageDiv = document.getElementById('message');
+if (messageDiv.innerHTML.trim() !== '') {
+    messageDiv.style.display = 'block';
+    
+    // Assuming `message` is a variable that contains the message you want to alert
+    const message = messageDiv.innerHTML.trim();  // Get the content of the div
+    alert(`${message}`);  // Alert the content of the div
+    
+    // Fade out after 5 seconds
+    setTimeout(function () {
+        messageDiv.style.transition = 'opacity 1s';
+        messageDiv.style.opacity = '0';
+        
+        setTimeout(function () {
+            messageDiv.style.display = 'none'; // Wait for the transition to complete and hide the element
+        }, 1000); // Wait for the transition to complete
+    }, 5000); // Wait for 5 seconds before starting fade out
+}
+    </script>
 </body>
-
 </html>

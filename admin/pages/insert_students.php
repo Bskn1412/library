@@ -1,3 +1,8 @@
+<?php
+include(__DIR__ . '/../config/session_check.php');
+include(__DIR__ . '/../../dbconn.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +13,6 @@
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
-            background-color: #3d444db3;
             padding: 20px;
             color: rgb(255, 255, 255);
         }
@@ -48,19 +52,15 @@
         }
 
         .message {
-            margin-top: 20px;
+            top: 0;
+            right: 0;
             font-size: 1.2em;
             color: green;
-            display: none;
+            position: absolute;
         }
 
         .error-message {
             color: red;
-        }
-
-     
-        hr {
-            margin: 40px 0;
         }
 
         h2{
@@ -77,6 +77,11 @@
         .csv h3{
             text-align: center;
         }
+        .file-input {
+        width: 400px;  
+        font-size: 16px; 
+        font-family: 'Times New Roman', Times, serif;
+    }
         .container{
             margin: auto;
             width: 50%;
@@ -120,14 +125,15 @@
             <button type="submit" name="submit_manual">Submit Manually</button>
         </form>
         </div>
-        <hr>
+       
         <div class="csv">
         <form action="../controller/student_insert.php" method="post" enctype="multipart/form-data">
             <h3>Upload CSV File</h3>
-            <input type="file" name="csv_file" accept=".csv" required><br>
+            <input type="file" name="csv_file" accept=".csv" class="file-input" required><br>
             <button type="submit" name="submit_csv">Upload</button>
         </form>
         </div>
+        
         <!-- Message displayed after form submission -->
         <div class="message" id="message">
             <?php
@@ -140,22 +146,27 @@
             ?>
         </div>
     </div>
-
     <script>
         // Show message on page load
         const messageDiv = document.getElementById('message');
-        if (messageDiv.innerHTML.trim() !== '') {
-            messageDiv.style.display = 'block';
-            // Fade out after 5 seconds
-            setTimeout(function () {
-                messageDiv.style.transition = 'opacity 1s';
-                messageDiv.style.opacity = '0';
-                setTimeout(function () {
-                    messageDiv.style.display = 'none';
-                }, 1000); // Wait for the transition to complete
-            }, 5000);
-        }
+if (messageDiv.innerHTML.trim() !== '') {
+    messageDiv.style.display = 'block';
+    
+    // Assuming `message` is a variable that contains the message you want to alert
+    const message = messageDiv.innerHTML.trim();  // Get the content of the div
+    alert(`${message}`);  // Alert the content of the div
+    
+    // Fade out after 5 seconds
+    setTimeout(function () {
+        messageDiv.style.transition = 'opacity 1s';
+        messageDiv.style.opacity = '0';
+        
+        setTimeout(function () {
+            messageDiv.style.display = 'none'; // Wait for the transition to complete and hide the element
+        }, 1000); // Wait for the transition to complete
+    }, 5000); // Wait for 5 seconds before starting fade out
+}
+
     </script>
 </body>
-
 </html>

@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/../../config/dbconn.php';
+include(__DIR__ . '/../config/session_check.php');
+include(__DIR__ . '/../../dbconn.php');
 
 $message = "";
 
@@ -64,7 +65,6 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,7 +72,6 @@ $conn->close();
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
-            background-color: #3d444db3;
             padding: 20px;
             color: rgb(255, 255, 255);
         }
@@ -82,11 +81,17 @@ $conn->close();
             padding: 30px;
             border-radius: 10px;
             margin: auto;
+            width: 50%;
+            padding: 10px;
         }
 
-        h1,
-        h2,
-        h3 {
+       
+        h2{
+            margin-bottom: 20px;
+            color:rgb(213, 238, 23);
+            text-align: center;
+        }
+        h1,h3{
             margin-bottom: 20px;
             color:rgb(213, 238, 23);
         }
@@ -122,33 +127,25 @@ $conn->close();
         button[type=submit]:hover {
             background-color: #45a049;
         }
-
         .status {
             color: green;
         }
-
         .error {
             color: red;
         }
-
         a {
             display: inline-block;
             margin-top: 20px;
             color:rgb(37, 193, 210);
             text-decoration: none;
         }
-
         a:hover {
             text-decoration: underline;
-        }
-        hr {
-            margin: 40px 0;
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
         <h2>Promote / Demote Students</h2>
         <?php if (!empty($message)): ?>
@@ -163,9 +160,7 @@ $conn->close();
             <button type="submit" name="promote_roll">Promote</button>
             <button type="submit" name="demote_roll">Demote</button>
         </form>
-
-        <hr>
-
+        
         <!-- Promote / Demote by Batch -->
         <form action="" method="POST">
             <h3>By Batch</h3>
@@ -174,10 +169,7 @@ $conn->close();
             <button type="submit" name="promote_batch">Promote</button>
             <button type="submit" name="demote_batch">Demote</button>
         </form>
-
         <a href="dashboard.php">Back to Dashboard</a>
     </div>
-
 </body>
-
 </html>

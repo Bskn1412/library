@@ -1,6 +1,6 @@
 <?php
 ob_start(); // Start output buffering
-require_once __DIR__ . '/../../config/dbconn.php';
+include(__DIR__ . '/../../dbconn.php');
 
 // Custom error handler for SQL exceptions
 function handle_sql_exception($error)
@@ -18,10 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $faculty_number = trim($_POST['number']);
         $name = trim($_POST['name']);
         $branch = trim($_POST['branch']);
+        $title = trim($_POST['title']);
 
         try {
-            $stmt = $conn->prepare("INSERT INTO staff (number, name, branch) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $faculty_number, $name, $branch);
+            $stmt = $conn->prepare("INSERT INTO staff (rollnum, name,title, branch) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $faculty_number, $name, $title, $branch);
             $stmt->execute();
             $message = "Faculty member inserted successfully!";
         } catch (mysqli_sql_exception $e) {
@@ -45,11 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             while (($data = fgetcsv($handle, 1000, ",")) !== false) {
                 $faculty_number = trim($data[0]);
                 $name = trim($data[1]);
-                $branch = trim($data[2]);
+                $title = trim($data[2]);
+                $branch = trim($data[3]);
 
                 try {
-                    $stmt = $conn->prepare("INSERT INTO staff (number, name, branch) VALUES (?, ?, ?)");
-                    $stmt->bind_param("sss", $faculty_number, $name, $branch);
+                    $stmt = $conn->prepare("INSERT INTO staff (rollnum, name,title, branch) VALUES (?, ?,?, ?)");
+                    $stmt->bind_param("ssss", $faculty_number, $name, $title, $branch);
                     $stmt->execute();
                 } catch (mysqli_sql_exception $e) {
                     $error_occurred = true;
