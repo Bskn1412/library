@@ -58,9 +58,11 @@ header{
   z-index: 100;
   margin-top: 10px;
   color: white;
+  
 }
 
 header .logo{
+  font-size: large;
   font-weight: bold;
 }
 
@@ -79,6 +81,7 @@ header .menu{
   text-decoration: none;
   color: #f0f0f0;
   font-weight: 700;
+  font-size: 18px;
   transition:  .5s;
 }
 

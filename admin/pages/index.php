@@ -10,16 +10,17 @@ include(__DIR__ . '/../../dbconn.php');
   <style>
   
     html, body {
+      top: 0;
+      right: 0;
       margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #0d1117;
+      height: 100vh;
+      background-color:black;
     }
  
     .container {
       display: flex;
       flex-direction: column;
-      height: 100%;
+      height: 100vh;
     }
    
     .top {
@@ -35,12 +36,24 @@ include(__DIR__ . '/../../dbconn.php');
       flex: 1;
       display: flex;
     }
-   
-    .right {
+
+   .right {
       flex: 1;
       width: 30%;
+      border: 2px solid rgb(239, 227, 227);
+      padding: 20px;
+      box-shadow: 
+        inset 0 0 8px rgba(255, 255, 255, 0.5),   /* base inner glow */
+        0 0 10px rgba(255, 255, 255, 0.7);        /* base outer glow */
+      transition: box-shadow 0.4s ease;
+       border-radius: 10px;
     }
-  
+    .right:hover {
+      box-shadow: 
+        inset 0 0 15px rgba(255, 255, 255, 0.7),  /* stronger inner glow */
+        0 0 20px rgba(255, 255, 255, 0.5);        /* stronger outer glow */
+    }
+
     iframe {
       width: 100%;
       height: 100%;
@@ -67,10 +80,10 @@ include(__DIR__ . '/../../dbconn.php');
         <iframe name="12" src="left.php" target="13"></iframe>
       </div>
       <div class="right">
-        <iframe name="13"></iframe>
+        <iframe name="13" src="quote.html"></iframe>
       </div>
     </div>
   </div>
+  <a href="../logout.php">Logout</a>
 </body>
 </html>
-<a href="../logout.php">Logout</a>

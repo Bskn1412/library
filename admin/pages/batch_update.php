@@ -1,68 +1,7 @@
-<?php
+<?php 
+include(__DIR__ . '/../controller/batch_update.php'); 
 include(__DIR__ . '/../config/session_check.php');
-include(__DIR__ . '/../../dbconn.php');
-
-$message = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['promote_roll'])) {
-        // Promote a student by Roll Number
-        $roll = $_POST['roll'];
-        $query = "UPDATE student SET year = year + 1 WHERE rollnum = ? AND year < 4"; // Prevents exceeding 4th year
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("s", $roll);
-
-        if ($stmt->execute() && $stmt->affected_rows > 0) {
-            $message = "Student with Roll Number $roll promoted successfully!";
-        } else {
-            $message = "Failed to promote. Student may already be in the final year.";
-        }
-        $stmt->close();
-    } elseif (isset($_POST['demote_roll'])) {
-        // Demote a student by Roll Number
-        $roll = $_POST['roll'];
-        $query = "UPDATE student SET year = year - 1 WHERE rollnum = ? AND year > 1"; // Prevents going below 1st year
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("s", $roll);
-
-        if ($stmt->execute() && $stmt->affected_rows > 0) {
-            $message = "Student with Roll Number $roll demoted successfully!";
-        } else {
-            $message = "Failed to demote. Student may already be in the 1st year.";
-        }
-        $stmt->close();
-    } elseif (isset($_POST['promote_batch'])) {
-        // Promote all students in a batch
-        $batch = $_POST['batch'];
-        $query = "UPDATE student SET year = year + 1 WHERE batch = ? AND year < 4";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $batch);
-
-        if ($stmt->execute() && $stmt->affected_rows > 0) {
-            $message = "All students from Batch $batch promoted successfully!";
-        } else {
-            $message = "Failed to promote. Students may already be in the final year.";
-        }
-        $stmt->close();
-    } elseif (isset($_POST['demote_batch'])) {
-        // Demote all students in a batch
-        $batch = $_POST['batch'];
-        $query = "UPDATE student SET year = year - 1 WHERE batch = ? AND year > 1";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $batch);
-
-        if ($stmt->execute() && $stmt->affected_rows > 0) {
-            $message = "All students from Batch $batch demoted successfully!";
-        } else {
-            $message = "Failed to demote. Students may already be in the 1st year.";
-        }
-        $stmt->close();
-    }
-}
-
-$conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,8 +23,6 @@ $conn->close();
             width: 50%;
             padding: 10px;
         }
-
-       
         h2{
             margin-bottom: 20px;
             color:rgb(213, 238, 23);
@@ -123,24 +60,26 @@ $conn->close();
             cursor: pointer;
             font-size: 1.1em;
         }
-
         button[type=submit]:hover {
             background-color: #45a049;
+        }
+        #message {
+            top: 0;
+            right: 0;
+            font-size: 1.2em;
+            color: green;
+            display: none;
+            position: absolute;
+        }
+
+        .error-message {
+            color: red;
         }
         .status {
             color: green;
         }
         .error {
             color: red;
-        }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            color:rgb(37, 193, 210);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -149,7 +88,7 @@ $conn->close();
     <div class="container">
         <h2>Promote / Demote Students</h2>
         <?php if (!empty($message)): ?>
-            <p class="status"><?php echo htmlspecialchars($message); ?></p>
+            <p id="message" class="status"><?php echo htmlspecialchars($message); ?></p>
         <?php endif; ?>
 
         <!-- Promote / Demote by Roll Number -->
@@ -169,7 +108,27 @@ $conn->close();
             <button type="submit" name="promote_batch">Promote</button>
             <button type="submit" name="demote_batch">Demote</button>
         </form>
-        <a href="dashboard.php">Back to Dashboard</a>
     </div>
+     <script>
+        // Show message on page load
+        const messageDiv = document.getElementById('message');
+        if (messageDiv.innerHTML.trim() !== '') {
+            messageDiv.style.display = 'block';
+            
+            // Assuming `message` is a variable that contains the message you want to alert
+            const message = messageDiv.innerHTML.trim();  // Get the content of the div
+            alert(`${message}`);  // Alert the content of the div
+            
+            // Fade out after 5 seconds
+            setTimeout(function () {
+                messageDiv.style.transition = 'opacity 1s';
+                messageDiv.style.opacity = '0';
+                
+                setTimeout(function () {
+                    messageDiv.style.display = 'none'; // Wait for the transition to complete and hide the element
+                }, 1000); // Wait for the transition to complete
+             }, 5000); // Wait for 5 seconds before starting fade out
+        }
+    </script>
 </body>
 </html>

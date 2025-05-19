@@ -62,9 +62,11 @@
     }
     .container h1:hover{
         color: white;
+        transition-duration: 1s;
     }
     .container p:hover{
         color: white;
+        transition-duration: 1s;
     }
 </style>
 </head>

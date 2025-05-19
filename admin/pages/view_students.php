@@ -98,6 +98,7 @@ $conn->close();
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            border: solid 2px orange;
         }
 
         table th,
@@ -108,8 +109,8 @@ $conn->close();
         }
 
         table th {
-            background-color: #007bff;
-            color: white;
+           background-color: rgb(255, 165, 0,0.7);
+           color: white;
         }
 
         table td {

@@ -163,8 +163,6 @@ include(__DIR__ . '/../../dbconn.php');
              }, 5000); // Wait for 5 seconds before starting fade out
         }
     </script>
-
-        <a href="students.php">Back to Student List</a>
     </div>
 </body>
 

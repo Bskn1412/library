@@ -1,5 +1,5 @@
 <?php 
-include(__DIR__ . ' /../dbconn.php');
+include(__DIR__ . '/../dbconn.php');
 ?>
 
 <!DOCTYPE html>

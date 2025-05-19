@@ -1,7 +1,5 @@
 ﻿<?php 
-include(__DIR__ . '/../admin/config/dbconn.php');
-
-
+include(__DIR__ . '/../dbconn.php');
 ?>
 
 <!DOCTYPE html>

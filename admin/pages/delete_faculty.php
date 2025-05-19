@@ -74,16 +74,6 @@ include(__DIR__ . '/../../dbconn.php');
         .error-message {
             color: red;
         }
-
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            color:rgb(37, 193, 210);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
         h2{
             text-align: center; 
             color:rgb(213, 238, 23);
@@ -138,9 +128,5 @@ include(__DIR__ . '/../../dbconn.php');
              }, 5000); // Wait for 5 seconds before starting fade out
         }
     </script>
-
-
-        <a href="../controller/faculty_deletion.php">Back to Faculty List</a>
-        </div>
 </body>
 </html>

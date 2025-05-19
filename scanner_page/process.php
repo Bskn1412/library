@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json"); // JSON Response
-include("../config/dbconn.php"); // Database Connection
+include(__DIR__ . '/../dbconn.php');
 include("datetime.php");
 
 $response = [];
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $update_outtime->bind_param("si", $current_time, $last_entry_id);
             if ($update_outtime->execute()) {
                 $response["status"] = "success";
-                $response["message"] = "Visit again, $name!";
+                $response["message"] = "VISIT AGAIN, $name!  🥺";
             } else {
                 $response["status"] = "error";
                 $response["message"] = "Error updating outtime." . $update_outtime->error;
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($insert_query->execute()) {
                 $response["status"] = "success";
-                $response["message"] = "Welcome, $name!";
+                $response["message"] = "WELCOME, $name!  🤗";
             } else {
                 echo "Error inserting new entry.<br>";
                 $response["status"] = "error";
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $update_outtime->bind_param("si", $current_time, $last_entry_id);
             if ($update_outtime->execute()) {
                 $response["status"] = "success";
-                $response["message"] = "Visit again, $name $title!";
+                $response["message"] = "VISIT AGAIN, $name $title!  🥺";
             } else {
                 $response["status"] = "error";
                 $response["message"] = "Error updating outtime." . $update_outtime->error;
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($insert_query->execute()) {
                 $response["status"] = "success";
-                $response["message"] = "Welcome, $name $title!";
+                $response["message"] = "WELCOME, $name $title  🤗";
             } else {
                 $response["status"] = "error";
                 $response["message"] = "Error inserting entry." . $insert_query->error;
