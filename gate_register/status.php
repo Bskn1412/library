@@ -144,7 +144,7 @@ include(__DIR__ . '/../dbconn.php');
             tot += Number(element.count)
         });
 
-        document.querySelector('.count').innerHTML = "Total Vistis : " + tot
+        document.querySelector('.count').innerHTML = `Total Visitors: ${tot}`
     </script>
     <?php
         }
