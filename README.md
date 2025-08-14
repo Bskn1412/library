@@ -10,11 +10,11 @@ Welcome to the SRGEC Library Web System — a digital platform designed to manag
 
 This project is organized into three main modules:
 
-admin
+- admin
 
-Gate-register
+- Gate-register
 
-scanner
+- scanner
 
 Each plays a specific role in managing the library system.
 
@@ -68,22 +68,22 @@ Deploy on a PHP-supported server (e.g., XAMPP, WAMP, or a live hosting service).
 
 Make sure your server supports:
 
-PHP
+- PHP
 
-MySQL
+- MySQL
 
-Configure database
+- Configure database
 
-Start the app from /admin/index.php for administrative access.
+- Start the app from /admin/index.php for administrative access.
 
 🔐 User Roles
 
-Admin: Full access to all modules.
+- Admin: Full access to all modules.
 
-Library Staff: Use Gate-register and scanner.
+- Library Staff: Use Gate-register and scanner.
 
-Students/Visitors: Can be scanned and registered through the system.
+- Students/Visitors: Can be scanned and registered through the system.
 
 📞 Contact
 
-For questions or support, please contact the system administrator or SRGEC IT department.
+    For questions or support, please contact the system administrator or SRGEC IT department.
