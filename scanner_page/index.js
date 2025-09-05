@@ -6,6 +6,25 @@ let stat = document.querySelectorAll('.thumbnail .stat > div')
 let countItem = items.length;
 let itemActive = 0;
 
+
+  const roll = document.getElementById("number");
+  const form = document.getElementById("attendanceForm");
+  let typingTimer;
+  const scanDelay = 10; // time in ms to wait after "typing" ends
+
+  //Add Roll in Input after Scan
+  roll.addEventListener("keyup", (e) => {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(() => {
+      const val = roll.value.trim();
+      if (val !== "" && val.length >=10) {
+         form.requestSubmit(); //It's automatically submits man..!! Isn't it great..!!
+        roll.value = ""; // clear input for next scan
+      }
+
+    }, scanDelay);
+  });
+
 console.log(items);
 
 next.onclick = function(){

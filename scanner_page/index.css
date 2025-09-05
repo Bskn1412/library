@@ -38,7 +38,7 @@ body{
   padding: 0;
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: black;
+  background-color: #000;
   color: white;
 }
 header{
@@ -53,15 +53,13 @@ header{
   margin-top: 10px;
 }
 
-header .logo{
-  font-weight: bold;
-  font-size: large;
-}
-
-header .logo:hover{
-  color: #00a8c9;
-  transform: scale(1.1);
-  cursor: pointer;
+header img{
+ padding-top: 20px;
+ margin-bottom: 20px;
+ margin-right: 80px;
+ left: 0;
+ height: 6rem;
+ width: 80rem;
 }
 
 .menu li a{
@@ -74,23 +72,21 @@ header .logo:hover{
 
 .menu li a:hover{
   color: #00a8c9;
-
 }
 
 header .menu{
   display: flex;
   flex-direction: row;
   padding: 0;
-  margin: 0;
+  margin-left: 300px;
   list-style: none;
   justify-content: center;
-  gap:20px;
+  gap: 30px;
   font-weight: 500;
 }
 
 .slider{
   height: 100vh;
-  margin-top: -50px;
   position: relative;
 }
 .slider .list .item{
@@ -102,24 +98,40 @@ header .menu{
 }
 
 .slider .list .item img{
-  width: 100%;
-  height: 100%;
+  width: 95rem;
+  height: 90%;
+  border-radius: 15px;
   object-fit: cover;
+  display: block;
+  margin: 0;
+  position: absolute;
+  top: 0; bottom: 0;  right: 0;
 }
+
+/* .thatha img{
+  height: 700px;
+  width: 300px;
+  position: relative;
+  top: 30px;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+} */
 
 .slider .list .item::after{
   content: '';
   width: 100%;
   height: 100%;
   position: absolute;
-  left: 0;
+  left: 23.8rem;
   bottom: 0;
   background-image: linear-gradient(to top,#000 26%,transparent );
 }
 .slider .list .item .content{
-  position: absolute;
-  left: 10%;
-  top: 40%;
+  position: relative;
+  left: 25%;
+  top: 50%;
   width: 500px;
   max-width: 80%;
   z-index: 1;
@@ -136,8 +148,11 @@ header .menu{
   margin: 0;
 }
 
-.slider .list .item p:nth-child(3){
-  font-size: small;
+.slider .list .item p:nth-child(2){
+  font-size: 20px;
+  font-weight: bold;
+  
+
 }
 
 .slider .list .item.active{
@@ -166,9 +181,10 @@ header .menu{
 
 .arrows{
   position: absolute;
-  top: 30%;
+  top: 50%;
   right: 50px;
   z-index: 100;
+  opacity: 0.2;
 }
 
 .arrows button{
@@ -181,6 +197,7 @@ header .menu{
   font-size: x-large;
   transition:  .5s;
   color: #eee;
+  cursor: pointer;
 }
 
 .arrows button:hover{
@@ -197,7 +214,8 @@ header .menu{
   align-items: center;
   gap: 20px;
   overflow: hidden;
-  width: 100%;
+  right: 0;
+  width: 90%;
 }
 
 
@@ -216,12 +234,11 @@ header .menu{
   flex-direction: column;
   width: 100%;
   gap: 5px;
-  margin-top: 2em;
-  margin-left: 5em;
+  margin-left: 1em;
 
 }
 
-.scan input{
+/* .scan input{
   padding: 13px 20px;
   border-radius: 2rem;
   background-color: rgb(102, 102, 102);
@@ -234,7 +251,7 @@ header .menu{
 .scan input::placeholder{
   color: white;
   text-align: centery;
-}
+} */
 
 .scan button{
   padding: 8px 12px;
@@ -311,7 +328,7 @@ header .menu{
   border-radius: 1rem;
   box-shadow: 1px 1px 6px #000;
   font-size: x-large;
-  margin-left: 3em;
+  margin-left: 20em;
 }
 
 @keyframes show2{
@@ -322,6 +339,250 @@ header .menu{
   100%{
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+/* ---------------- MOBILE DEVICES (≤ 768px) ---------------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  header img {
+    width: 90%;
+    margin-right: 0;
+    padding-top: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .slider {
+    height: auto;
+  }
+
+  .slider .list .item img {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .slider .list .item .content {
+    left: 5%;
+    
+    transform: translateY(-50%);
+  }
+
+  .slider .list .item .content h2 {
+    font-size: 24px;
+  }
+
+  .slider .list .item p:nth-child(2) {
+    font-size: 16px;
+  }
+
+  .arrows {
+    top: 20%;
+    right: 10px;
+  }
+
+  .thumbnail {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    right: 0;
+  }
+/* 
+  .thatha video {
+    width: 200px;
+    height: auto;
+    top: 10px;
+  } */
+
+  .scan {
+    padding: 1em;
+    flex-direction: column;
+  }
+
+  .scan form {
+    margin: 0;
+    width: 100%;
+  }
+
+  .stat {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat div {
+    width: 80%;
+    height: auto;
+  }
+
+  #messageBox {
+    width: 90%;
+    margin-left: 0;
+    font-size: medium;
+  }
+}
+
+
+/* ---------------- TABLETS (769px to 1024px) ---------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  header {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1em;
+  }
+
+  header img {
+    width: 50rem;
+  }
+
+  .slider .list .item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .slider .list .item .content {
+    left: 10%;
+    top: 50%;
+    width: 80%;
+    transform: translateY(-50%);
+  }
+
+  .slider .list .item .content h2 {
+    font-size: 32px;
+  }
+
+  .slider .list .item p:nth-child(2) {
+    font-size: 18px;
+  }
+
+  .arrows {
+    right: 20px;
+  }
+
+  .thumbnail {
+    width: 100%;
+  }
+
+  .thatha img {
+    width: 250px;
+    height: auto;
+  }
+
+  .scan {
+    padding: 1.5em;
+  }
+
+  .scan form {
+    margin-left: 2em;
+  }
+
+  .stat div {
+    width: 100px;
+    height: 180px;
+  }
+
+  #messageBox {
+    width: 80%;
+    margin-left: 1em;
+  }
+}
+
+
+/* ---------------- SMALL DESKTOPS (1025px to 1366px) ---------------- */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  header {
+    width: 50%;
+    margin: 2% 10% 0 10%;
+  }
+
+  header img {
+    width: 30rem;
+    left: 10%;
+    height: 10%;
+    position: relative;
+    left: 0;
+    padding: 0;
+  }
+  .thatha video {
+    width: 60%;
+    height: auto;
+    max-height: 500px;
+    max-width: 300px;
+    position: relative;
+    left: 0;
+  }
+
+  .slider .list .item img {
+    width: 75%;
+    height: 90%;
+  }
+
+   .slider .list .item img::after{
+    width: 75%;
+    height: 90%;
+  }
+
+
+  .slider .list .item .content {
+    left: 30%;
+    width: 30%;
+    font-size: 15px;
+
+  }
+   .slider .list .item .content p:nth-child(2) {
+    font-size: 13px;
+  }
+
+  .stat div {
+    width: 60px;
+    height: 100px;
+  }
+
+  .scan form {
+    margin-left: 3em;
+  }
+
+  .thumbnail {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    align-items: flex-start;
+    top: 80%;
+  }
+
+  .thumbnail .stat {
+    width: 20%;
+  }
+
+  .thumbnail .scan {
+    width: 50%;
+  }
+  .arrows button{
+    width: 30px;
+    height: 30px;
+  }
+
+  .slider .list .item::after{
+    left: 15rem;
   }
 }
 

@@ -6,7 +6,6 @@ $data = [
   [ "img" => "5.jpg",  "quote" => "Reading is essential for those who seek to rise above the ordinary. – Jim Rohn" ],
   [ "img" => "6.jpg",  "quote" => "A room without books is like a body without a soul. – Cicero" ],
   [ "img" => "7.jpg",  "quote" => "The library is inhabited by spirits that come out of the pages at night. – Isabel Allende" ],
-  [ "img" => "8.jpg",  "quote" => "Libraries were full of ideas – perhaps the most dangerous and powerful of all weapons. – Sarah J. Maas" ],
   [ "img" => "9.jpg",  "quote" => "When in doubt go to the library. – J.K. Rowling" ],
   [ "img" => "10.jpg", "quote" => "So many books, so little time. – Frank Zappa" ],
   [ "img" => "11.jpg", "quote" => "The more that you read, the more things you will know. – Dr. Seuss" ],
@@ -34,6 +33,7 @@ $data = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>College Portal</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="input_but.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("attendanceForm").addEventListener("submit", function (event) {
@@ -64,11 +64,10 @@ $data = [
     </script>
 
 </head>
-
 <body>
-
   <header>
-    <div class="logo">Library</div>
+    <img src="./assets/logo.png" alt="logo">
+    <!-- <div class="logo">SESHADRI RAO GUDLAVALLERU ENGINEERING COLLEGE</div> -->
     <ul class="menu">
       <li><a href="index.php">Home</a></li>
       <li><a href="info.html">Info</a></li>
@@ -80,8 +79,16 @@ $data = [
    <div class="status">
      <div id="messageBox"> heloo</div>
    </div>
+  
 
   <div class="slider">
+     <div class="thatha">
+        <!-- <img src="./assets/thatha.png" alt="thatha"> -->
+         <video autoplay loop muted playsinline style="width: 400px; height: 700px;">
+              <source src="./assets/thatha.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+         </video>
+     </div>
      <div class="list">
        <div class="item active">
           <img src="./assets/fwdphotos/2.jpg" alt="Image 1">
@@ -114,8 +121,24 @@ $data = [
 
            <div class="scan">
              <form id="attendanceForm" action="process.php" method="POST">
-                  <input type="text" name="number" id="number" placeholder="Enter your Roll Number" required autocomplete="off">
-                  <button type="submit">Submit</button>
+              <!-- For input (Roll No)button effect  -->
+              <div id="poda">
+                <div class="glow"></div>
+                <div class="darkBorderBg"></div>
+                <div class="darkBorderBg"></div>
+                <div class="darkBorderBg"></div>
+                <div class="white"></div>
+                <div class="border"></div>
+                <div id="main">
+                <div id="input-mask"></div>
+                <div id="pink-mask"></div>
+               <!-- For input (Roll No)button effect  -->
+
+                <input type="text" name="number" class="input" id="number" placeholder="Enter your Roll Number" required autocomplete="off" autofocus>
+                <!-- <button id="sabbu" type="submit">Submit</button> --> 
+                  
+                  </div>
+                </div>   
              </form>
            </div>
 

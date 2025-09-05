@@ -16,6 +16,9 @@ include(__DIR__ . '/../../dbconn.php');
             padding: 20px;
             color: rgb(255, 255, 255);
         }
+        body::-webkit-scrollbar{
+            display: none;
+        }
         .form-group {
             margin-bottom: 20px;
         }
