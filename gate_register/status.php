@@ -26,88 +26,147 @@ include(__DIR__ . '/../dbconn.php');
     <div id="head">
             <h1>Automatic Library Visitors Counter</h1>
     </div>
+
     
     <div class="container">
-      <div class="login">
-        <div class="form-container">
-            <h1>Stats.</h1>
-            <form method="post" class="yo">
-                <div class="part">
-                <label>From:</label>
-                <input type="date" name="fromdate" value="<?php echo $_POST['fromdate'] ?? ''; ?>" required>
-                <label>To:</label>
-                <input type="date" name="todate" value="<?php echo $_POST['todate'] ?? ''; ?>" required>
-                
-                <label>Branch:</label>
-                <select name="ugbranch">
-                    <option value="0">Select</option>
-                    <?php
-                    $query = $conn->query("SELECT UPPER(ug) AS branch FROM branches UNION SELECT UPPER(pg) FROM branches");
-                    while ($res = $query->fetch_assoc()) {
-                        if (!empty($res['branch'])) {
-                            echo "<option value='" . strtolower($res['branch']) . "'>" . $res['branch'] . "</option>";
-                        }
-                    }
-                    ?>
-                </select>
-                
-                <label>Year:</label>
-                <select name="ugyear">
-                    <option value="0">Select</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                </select>
-                </div>
-                <input class="but" type="submit" name="datesubmit" value="Submit">
-            </form>
+        <div class="login">
+            <div class="form-container">
+                <h1>Stats.</h1>
+                <form method="post" class="yo">
+                    <div class="part">
+                        <label>From:</label>
+                        <input type="date" name="fromdate" value="<?php echo $_POST['fromdate'] ?? ''; ?>" required>
+                        <label>To:</label>
+                        <input type="date" name="todate" value="<?php echo $_POST['todate'] ?? ''; ?>" required>
+                    </div>
+                    <input class="but" type="submit" name="datesubmit" value="Submit">
+                </form>
+            </div>
         </div>
-      </div>
     </div>
+
+    <center>
+    
+    <div class="progress">
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+        <h2 class="count"></h2>
+    </div>
+    </center>
+
     
     <?php
     if (isset($_POST['datesubmit'])) {
         $fromdate = mysqli_real_escape_string($conn, $_POST['fromdate']);
-        $todate = mysqli_real_escape_string($conn, $_POST['todate']);
-        $branch = mysqli_real_escape_string($conn, $_POST['ugbranch']);
-        $year = mysqli_real_escape_string($conn, $_POST['ugyear']);
+        $todate = mysqli_real_escape_string($conn, $_POST['todate']);;
+
+        $data = array();
 
         if (empty($fromdate) || empty($todate)) {
             echo "<script>alert('Please select From and To dates');</script>";
         } else {
-            echo "<center><table class='contain-table'>
-                  <thead>
-                    <tr>
-                        <th>Sno</th>
-                        <th>Date</th>
-                        <th>Branch</th>
-                        <th>Count</th>
-                        <th>Year</th>
-                    </tr> </thead><tbody>";
             
-            $query = "SELECT date,count(branch) as co,branch,year FROM main WHERE date BETWEEN '$fromdate' AND '$todate' ";
-            if ($branch !== '0') {
-                $query .= " AND branch LIKE '$branch%'";
-            }
-            if ($year !== '0') {
-                $query .= " AND year = '$year'";
-            }
-            $query .= "group by branch,year ORDER BY date ASC";
+            $query = "SELECT count(branch) as count,branch FROM main WHERE date BETWEEN '$fromdate' AND '$todate' group by branch";
 
             $result = $conn->query($query);
-            $sno = 1;
             while ($res = $result->fetch_assoc()) {
-                echo "<tr>
-                        <td>{$sno}</td>
-                        <td>{$res['date']}</td>
-                        <td>" . strtoupper($res['branch']) . "</td>
-                        <td>{$res['co']}</td>
-                        <td>{$res['year']}</td>
-                    </tr>";
-                $sno++;
+                $data[] = array(
+                    'branch' => $res['branch'],
+                    'count' => $res['count']
+                );
             }
-            echo "</tbody></table></center>";
+
+            $js_dict = json_encode($data);
+            // file_put_contents('data.json', $jsonData);
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Use the PHP data in JavaScript
+        let data = <?php echo $js_dict; ?>;
+
+        if(data.length > 0){
+
+            const progress = document.querySelector('.progress')
+            progress.style.display = 'flex';
+    
+            const chartData = {
+                labels : ['python','java'],
+                data : [30,20]
+            }
+    
+            const myChar = document.getElementById('myChart');
+    
+            new Chart(myChar,{
+                type:'doughnut',
+                data: {
+                  labels: data.map(item => item.branch),
+                // labels: chartData.labels,
+                  datasets: [{
+                    label: 'Branch Wise Count',
+                    data: data.map(item => item.count),
+                    // data : chartData.data,
+                    backgroundColor: [
+                         'rgba(255, 99, 132, 0.2)',
+                         'rgba(54, 162, 235, 0.2)',
+                         'rgba(255, 206, 86, 0.2)',
+                         'rgba(75, 192, 192, 0.2)',
+                         'rgba(153, 102, 255, 0.2)',
+                         'rgba(255, 159, 64, 0.2)',
+                         'rgba(201, 203, 207, 0.2)',
+                         'rgba(0, 123, 255, 0.2)',
+                         'rgba(40, 167, 69, 0.2)',
+                         'rgba(255, 193, 7, 0.2)',
+                         'rgba(23, 162, 184, 0.2)',
+                         'rgba(220, 53, 69, 0.2)',
+                         'rgba(111, 66, 193, 0.2)',
+                         'rgba(255, 87, 34, 0.2)',
+                         'rgba(139, 195, 74, 0.2)',
+                         'rgba(233, 30, 99, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132)',
+                        'rgba(54, 162, 235)',
+                        'rgba(255, 206, 86)',
+                        'rgba(75, 192, 192)',
+                        'rgba(153, 102, 255)',
+                        'rgba(255, 159, 64)',
+                        'rgba(201, 203, 207)',
+                        'rgba(0, 123, 255)',
+                        'rgba(40, 167, 69)',
+                        'rgba(255, 193, 7)',
+                        'rgba(23, 162, 184)',
+                        'rgba(220, 53, 69)',
+                        'rgba(111, 66, 193)',
+                        'rgba(255, 87, 34)',
+                        'rgba(139, 195, 74)',
+                        'rgba(233, 30, 99)'
+                    ],
+                    borderWidth: 1
+                  }]
+                },
+                options:{
+                    borderRadius:2,
+                    hoverBorderWidth:3,
+                    plugins:{
+                        legend:{
+                            display:true
+                        }
+    
+                    }
+                }
+            })
+        }
+
+        let tot=0;
+
+        data.forEach(element => {
+            tot += Number(element.count)
+        });
+
+        document.querySelector('.count').innerHTML = `Total Visitors: ${tot}`
+    </script>
+    <?php
         }
     }
     ?>
