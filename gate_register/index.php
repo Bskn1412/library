@@ -40,9 +40,9 @@
       </div>
 	  <div class="new" >
        <div id="nam" style="color: greenyellow;">Upgraded By:</div><br>
-	   <div id="nam1">B. Syam</div>
-       <div id="nam1">A. Yaswanth Kiran</div>
-       <div id="nam1">B. Sai Karthik Nehru</div>
+	   <div id="nam1">B. Syam (22481A0539)</div>
+       <div id="nam1">A. Yaswanth Kiran (22481A0510)</div>
+       <div id="nam1">B. Sai Karthik Nehru (22481A0518)</div>
       </div>
 	</div>
 

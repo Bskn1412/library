@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-//http://localhost/STUDENT/initialize_db.php
+//http://localhost:3000/initialize_db.php
 
 $servername = "localhost";
 $username = "root"; // Default XAMPP username

@@ -19,7 +19,7 @@ let itemActive = 0;
       const val = roll.value.trim();
       if (val !== "" && val.length >=10) {
          form.requestSubmit(); //It's automatically submits man..!! Isn't it great..!!
-        roll.value = ""; // clear input for next scan
+         roll.value = ""; // clear input for next scan
       }
 
     }, scanDelay);
@@ -99,3 +99,37 @@ function showSlider(){
     }, 7000);
 }
 
+
+
+
+// To show message of Update button in nav bar
+     document.getElementById('updateLibraryBtn').addEventListener('click', function () {
+  const btn = this;
+  const statusEl = document.getElementById('updateStatus');
+
+  btn.disabled = true;
+  statusEl.textContent = '⏳ Updating...';
+
+  fetch('auto_close.php', {
+    method: 'POST'
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === 'success') {
+      if (data.affected > 0) {
+        statusEl.textContent = `✅ ${data.affected} records updated at ${data.closing_time}`;
+      } else {
+        statusEl.textContent = `ℹ️ No records needed updating. (${data.closing_time})`;
+      }
+    } else {
+      statusEl.textContent = '❌ Update failed. Check logs.';
+    }
+  })
+  .catch(error => {
+    statusEl.textContent = '⚠️ Network or server error.';
+    console.error('Error:', error);
+  })
+  .finally(() => {
+    btn.disabled = false;
+  });
+});

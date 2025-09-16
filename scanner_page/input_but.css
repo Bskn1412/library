@@ -26,6 +26,18 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+input[type="text"]
+{
+    padding-left: 2rem;  /* adjust spacing */
+    box-sizing: border-box;
+}
+
+
+.input::placeholder{
+  padding-left: 0.5rem; /* match input padding */
+    color: #ccc; 
+}
 #poda {
   display: flex;
   align-items: center;

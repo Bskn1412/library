@@ -49,8 +49,8 @@ body{
 	align-items: center;
 }
 .img img {
-  max-height:650px ;
-  max-width: 520px;
+  max-height:950px ;
+  max-width: 920px;
 	border-radius: 1rem;
 }
 
@@ -67,27 +67,35 @@ body{
 }
 
 .progress{
-	display: none;
+	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
-	width: 500px;
-	height: auto;
+	flex-direction: row;
+	border: 2px solid orange;
+	gap: 40px;
+	width: 107rem;
+	height: 30rem;
 	background-color: rgba(0, 0, 0, 0.5);
 	border-radius: 10px;
 	margin-top: 20px;
 	padding: 20px;
 	margin-bottom: 10px;
+	
 }
 
 .count {
     font-size: 24px;
     font-weight: bold;
     color: #2c3e50;
-    margin-top: 20px;
     background-color: #ecf0f1;
     padding: 10px 20px;
     border-radius: 8px;
     display: inline-block;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	margin-top: 20px;
 }
+ .chart-container {
+      width: 100%;
+      max-width: 700px;
+      margin: 20px auto;
+    }

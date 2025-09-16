@@ -41,49 +41,116 @@ body{
   background-color: #000;
   color: white;
 }
-header{
+header {
   width: 1200px;
   max-width: 90%;
-  margin: auto;
+  margin: 10px auto -10 auto;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   z-index: 100;
-  margin-top: 10px;
+  padding-left: 100px;
 }
 
-header img{
- padding-top: 20px;
- margin-bottom: 20px;
- margin-right: 80px;
- left: 0;
- height: 6rem;
- width: 80rem;
+header img {
+  height: 6rem;
+  width: auto;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 200px;
 }
 
-.menu li a{
+/* Navigation Menu Styles */
+header .menu {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 30px;
+  align-items: center;
+}
+/* For Update Button */
+#updateLibraryBtn {
+  background: none;
+  border: none;
+  color: #b81111;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0;
+  font-family: inherit;
+}
+
+#updateLibraryBtn:hover {
+  color: #00a8c9;
+}
+
+#updateStatus {
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+#updateStatus.success {
+  color: #4CAF50; /* Green for success */
+}
+#updateStatus.error {
+  color: #f44336; /* Red for error */ 
+}
+
+.visitor-box {
+  background-color: #000000;
+  border: 2px solid #00a8c9;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  color: #007b9e;
+  box-shadow: 0 2px 8px rgba(7, 168, 200, 0.2);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
+  margin-left: 9rem;
+  min-width: 180px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.visitor-box:hover {
+  transform: scale(1.05);
+  border-color: #00f0ff;
+  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.5);
+  color: #00f0ff;
+  background-color: #0a0a0a;
+}
+
+.visitor-box h2 {
+  font-size: 1rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  color: #39bfbb;
+}
+
+.visitor-box p {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: bold;
+  color: #009dc4;
+}
+
+
+.menu li a {
   text-decoration: none;
   color: #f0f0f0;
   font-size: 18px;
   font-weight: 700;
-  transition:  .5s;
+  transition: color 0.3s ease;
 }
 
-.menu li a:hover{
+.menu li a:hover {
   color: #00a8c9;
 }
 
-header .menu{
-  display: flex;
-  flex-direction: row;
-  padding: 0;
-  margin-left: 300px;
-  list-style: none;
-  justify-content: center;
-  gap: 30px;
-  font-weight: 500;
-}
+
 
 .slider{
   height: 100vh;
@@ -352,92 +419,74 @@ header .menu{
 /* ---------------- MOBILE DEVICES (≤ 768px) ---------------- */
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 100%;
-    margin-top: 0;
+    width: 90%;
+    margin: 2% auto 0 auto;
   }
 
   header img {
-    width: 90%;
-    margin-right: 0;
-    padding-top: 10px;
-  }
-
-  .menu {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .slider {
+    width: 20rem;
     height: auto;
+    position: relative;
+    left: 0;
+    padding: 0;
+  }
+
+  .thatha video {
+    width: 90%;
+    height: auto;
+    max-height: 300px;
+    max-width: 100%;
+    position: relative;
+    left: 0;
   }
 
   .slider .list .item img {
     width: 100%;
     height: auto;
-    position: relative;
+  }
+
+  .slider .list .item img::after {
+    width: 100%;
+    height: auto;
   }
 
   .slider .list .item .content {
-    left: 5%;
-    
-    transform: translateY(-50%);
+    left: 10%;
+    width: 80%;
+    font-size: 14px;
   }
 
-  .slider .list .item .content h2 {
-    font-size: 24px;
-  }
-
-  .slider .list .item p:nth-child(2) {
-    font-size: 16px;
-  }
-
-  .arrows {
-    top: 20%;
-    right: 10px;
-  }
-
-  .thumbnail {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    right: 0;
-  }
-/* 
-  .thatha video {
-    width: 200px;
-    height: auto;
-    top: 10px;
-  } */
-
-  .scan {
-    padding: 1em;
-    flex-direction: column;
-  }
-
-  .scan form {
-    margin: 0;
-    width: 100%;
-  }
-
-  .stat {
-    flex-direction: column;
-    align-items: center;
+  .slider .list .item .content p:nth-child(2) {
+    font-size: 12px;
   }
 
   .stat div {
-    width: 80%;
-    height: auto;
+    width: 50px;
+    height: 80px;
   }
 
-  #messageBox {
-    width: 90%;
-    margin-left: 0;
-    font-size: medium;
+  .scan form {
+    margin-left: 1em;
+  }
+
+  .thumbnail {
+    flex-direction: column;
+    gap: 1em;
+    top: auto;
+  }
+
+  .thumbnail .stat,
+  .thumbnail .scan {
+    width: 100%;
+  }
+
+  .arrows button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .slider .list .item::after {
+    left: 5rem;
   }
 }
 
@@ -445,64 +494,76 @@ header .menu{
 /* ---------------- TABLETS (769px to 1024px) ---------------- */
 @media (min-width: 769px) and (max-width: 1024px) {
   header {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 1em;
+    width: 70%;
+    margin: 2% auto 0 auto;
   }
 
   header img {
-    width: 50rem;
+    width: 25rem;
+    height: auto;
+    position: relative;
+    left: 0;
+    padding: 0;
+  }
+
+  .thatha video {
+    width: 80%;
+    height: auto;
+    max-height: 400px;
+    max-width: 90%;
+    position: relative;
+    left: 0;
   }
 
   .slider .list .item img {
-    width: 100%;
-    height: auto;
+    width: 90%;
+    height: 80%;
+  }
+
+  .slider .list .item img::after {
+    width: 90%;
+    height: 80%;
   }
 
   .slider .list .item .content {
-    left: 10%;
-    top: 50%;
-    width: 80%;
-    transform: translateY(-50%);
+    left: 20%;
+    width: 60%;
+    font-size: 14px;
   }
 
-  .slider .list .item .content h2 {
-    font-size: 32px;
+  .slider .list .item .content p:nth-child(2) {
+    font-size: 12px;
   }
 
-  .slider .list .item p:nth-child(2) {
-    font-size: 18px;
-  }
-
-  .arrows {
-    right: 20px;
-  }
-
-  .thumbnail {
-    width: 100%;
-  }
-
-  .thatha img {
-    width: 250px;
-    height: auto;
-  }
-
-  .scan {
-    padding: 1.5em;
+  .stat div {
+    width: 55px;
+    height: 90px;
   }
 
   .scan form {
     margin-left: 2em;
   }
 
-  .stat div {
-    width: 100px;
-    height: 180px;
+  .thumbnail {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: center;
+    top: auto;
   }
 
-  #messageBox {
+  .thumbnail .stat,
+  .thumbnail .scan {
     width: 80%;
-    margin-left: 1em;
+  }
+
+  .arrows button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .slider .list .item::after {
+    left: 10rem;
   }
 }
 
@@ -586,4 +647,84 @@ header .menu{
   }
 }
 
+
+
+/* ---------------- LARGE DESKTOPS (>=1366px) ---------------- 
+@media (min-width: 1367px) {
+  header {
+    width: 40%;
+    margin: 2% auto 0 auto;
+  }
+
+  header img {
+    width: 35rem;
+    height: auto;
+    position: relative;
+    left: 0;
+    padding: 0;
+  }
+
+  .thatha video {
+    width: 50%;
+    height: auto;
+    max-height: 600px;
+    max-width: 400px;
+    position: relative;
+    left: 0;
+  }
+
+  .slider .list .item img {
+    width: 80%;
+    height: 100%;
+  }
+
+  .slider .list .item img::after {
+    width: 80%;
+    height: 100%;
+  }
+
+  .slider .list .item .content {
+    left: 35%;
+    width: 30%;
+    font-size: 16px;
+  }
+
+  .slider .list .item .content p:nth-child(2) {
+    font-size: 14px;
+  }
+
+  .stat div {
+    width: 70px;
+    height: 110px;
+  }
+
+  .scan form {
+    margin-left: 4em;
+  }
+
+  .thumbnail {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    align-items: flex-start;
+    top: 80%;
+  }
+
+  .thumbnail .stat {
+    width: 20%;
+  }
+
+  .thumbnail .scan {
+    width: 50%;
+  }
+
+  .arrows button {
+    width: 35px;
+    height: 35px;
+  }
+
+  .slider .list .item::after {
+    left: 20rem;
+  }
+}
 
