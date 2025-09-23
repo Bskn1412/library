@@ -86,18 +86,14 @@ $data = [
 </head>
 <body>
   <header>
-<<<<<<< HEAD
     
     <span id="updateStatus" style="color: #f0f0f0; font-size: 14px; margin-left: 10px; "></span>
 
-=======
->>>>>>> 79fefd728c22cc7689517312267c78dc3932cac1
     <ul class="menu">
       <li><a href="index.php">Home</a></li>
       <li><a href="info.html">Info</a></li>
       <li>
           <button type="submit" id="updateLibraryBtn"> Update </button>
-<<<<<<< HEAD
       </li>
     </ul>
 
@@ -107,18 +103,6 @@ $data = [
      <h2>Total Visitors Today</h2>
      <p>0</p>
   </div>
-=======
-          <span id="updateStatus" style="color: #f0f0f0; font-size: 14px; margin-left: 10px; "></span>
-      </li>
-    </ul>
-
-    <img src="./assets/logo.png" alt="logo">
-
-    <div class="visitor-box">
-      <h2>Total Visitors Today</h2>
-      <p>0</p> <!-- ✅ Will be updated via fetch -->
-    </div>
->>>>>>> 79fefd728c22cc7689517312267c78dc3932cac1
   </header>
 
   <!-- Message Box -->
