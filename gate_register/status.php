@@ -19,7 +19,7 @@ include(__DIR__ . '/../dbconn.php');
       <li><a href="facultystatus.php">Faculty Status</a></li>
       <li><a href="datepick.php">Day Wise Details</a></li>
       <li><a href="bdetails.php">Branch Wise Details</a></li>
-      <li><a href="status.php">Staticstics</a></li>
+      <li><a href="status.php">Stats</a></li>
     </ul>
   </div>
 
