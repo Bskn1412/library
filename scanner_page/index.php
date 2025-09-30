@@ -13,7 +13,7 @@ $data = [
   [ "img" => "11.jpg", "quote" => "The more that you read, the more things you will know. – Dr. Seuss" ],
   [ "img" => "12.jpg", "quote" => "Libraries store the energy that fuels the imagination. – Sidney Sheldon" ],
   [ "img" => "13.jpg", "quote" => "You can never get a cup of tea large enough or a book long enough to suit me. – C.S. Lewis" ],
-  [ "img" => "14.jpg", "quote" => "A library is a hospital for the mind. – Anonymous" ],
+  [ "img" => "14.jpg", "quote" => "A library is a hospital for the mind. – Alvin Toffler" ],
   [ "img" => "15.jpg", "quote" => "Libraries will get you through times of no money better than money will get you through times of no libraries. – Anne Herbert" ],
   [ "img" => "16.jpg", "quote" => "The only true equalisers in the world are books; the only treasure-house open to all comers is a library. – John Lubbock" ],
   [ "img" => "17.jpg", "quote" => "Books are mirrors: you only see in them what you already have inside you. – Carlos Ruiz Zafón" ],
@@ -21,9 +21,9 @@ $data = [
   [ "img" => "19.jpg", "quote" => "Libraries are the wardrobes of literature. – George Dyer" ],
   [ "img" => "21.jpg", "quote" => "Reading is to the mind what exercise is to the body. – Joseph Addison" ],
   [ "img" => "22.jpg", "quote" => "Books wash away from the soul the dust of everyday life. – Unknown" ],
-  [ "img" => "23.jpg", "quote" => "The library is not just a place, it’s a gateway to infinite worlds. – Anonymous" ],
+  [ "img" => "23.jpg", "quote" => "The library is not just a place, it’s a gateway to infinite worlds. – Jorge Luis Borges" ],
   [ "img" => "24.jpg", "quote" => "A great library contains the diary of the human race. – George Mercer Dawson" ],
-  [ "img" => "25.jpg", "quote" => "Libraries change lives. They are places of learning, growth, and transformation. – Anonymous" ],
+  [ "img" => "25.jpg", "quote" => "Libraries change lives. They are places of learning, growth, and transformation. – Sidney Sheldon" ],
   [ "img" => "26.jpg", "quote" => "With freedom, books, flowers, and the moon, who could not be happy? – Oscar Wilde" ]
 ];
 ?>
@@ -32,7 +32,7 @@ $data = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>College Portal</title>
+  <title>Scanner Page</title>
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="input_but.css">
   <script>
@@ -85,11 +85,9 @@ $data = [
   </script>
 </head>
 <body>
+   <span id="updateStatus" style="color: #f0f0f0; font-size: 14px; margin-left: 10px; "></span>
   <header>
-    
-    <span id="updateStatus" style="color: #f0f0f0; font-size: 14px; margin-left: 10px; "></span>
-
-    <ul class="menu">
+     <ul class="menu">
       <li><a href="index.php">Home</a></li>
       <li><a href="info.html">Info</a></li>
       <li>
@@ -97,7 +95,7 @@ $data = [
       </li>
     </ul>
 
-    <a href="https://www.gecgudlavalleru.ac.in/" target="_blank" rel="noreferrer" ><img src="./assets/logo.png" alt="logo"></a>
+   <a href="https://www.gecgudlavalleru.ac.in/" target="_blank" rel="noreferrer" ><img src="./assets/logo.png" alt="logo"></a>
 
   <div class="visitor-box" onclick="window.open('../gate_register/status.php', '_blank', 'noopener,noreferrer')">
      <h2>Total Visitors Today</h2>
@@ -112,7 +110,7 @@ $data = [
 
   <div class="slider">
     <div class="thatha">
-      <video autoplay loop muted playsinline style="width: 400px; height: 700px;">
+      <video autoplay loop muted playsinline style="width: 300px; height: 600px; left: 0;">
         <source src="./assets/thatha.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -162,12 +160,13 @@ $data = [
           </div>
         </div>
       </form>
-    </div>
 
-    <div class="stat"> 
-      <div class="sd1"><img src=""></div>
-      <div class="sd2"><img src=""></div>
-      <div class="sd3"><img src=""></div>
+       <div class="stat"> 
+          <div class="sd1"><img src=""></div>
+          <div class="sd2"><img src=""></div>
+          <div class="sd3"><img src=""></div>
+       </div>
+
     </div>
   </div>
 

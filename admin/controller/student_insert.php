@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $batch = calculate_batch($roll_number);
 
         try {
-            $stmt = $conn->prepare("INSERT INTO student (rollnum, name, year, branch, batch) VALUES (?, ?, ?, ?, ?)");
+            $stmt = $conn->prepare("INSERT  INTO student (rollnum, name, year, branch, batch) VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param("sssss", $roll_number, $name, $year, $branch, $batch);
             $stmt->execute();
             $message = "Student inserted successfully!";
@@ -62,13 +62,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $batch = calculate_batch($roll_number);
 
                 try {
-                    $stmt = $conn->prepare("INSERT INTO student (rollnum, name, year, branch, batch) VALUES (?, ?, ?, ?, ?)");
+                    $stmt = $conn->prepare("INSERT  INTO student (rollnum, name, year, branch, batch) VALUES (?, ?, ?, ?, ?)");
                     $stmt->bind_param("sssss", $roll_number, $name, $year, $branch, $batch);
                     $stmt->execute();
                 } catch (mysqli_sql_exception $e) {
                     $error_occurred = true;
                     $error_message = handle_sql_exception($e->getMessage(), $roll_number);
-                    break;
                 }
             }
 

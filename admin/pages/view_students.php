@@ -7,6 +7,7 @@ $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $year = $_POST['year'];
+    $id = 1;
 
     // Fetch students based on the selected year
     $query = "SELECT rollnum, name, year, branch, batch FROM student WHERE year = ?";
@@ -155,6 +156,7 @@ $conn->close();
             <table>
                 <thead>
                     <tr>
+                        <th>S.No</th>
                         <th>Roll Number</th>
                         <th>Name</th>
                         <th>Year</th>
@@ -165,6 +167,7 @@ $conn->close();
                 <tbody>
                     <?php foreach ($students as $student): ?>
                         <tr>
+                            <td><?php echo htmlspecialchars($id++); ?></td>
                             <td><?php echo htmlspecialchars($student['rollnum']); ?></td>
                             <td><?php echo htmlspecialchars($student['name']); ?></td>
                             <td><?php echo htmlspecialchars($student['year']); ?></td>

@@ -11,7 +11,7 @@
         background-image: url('library.jpg');
         background-size: cover;
         background-position: center;
-        background-repeat: no-repeat;
+        background-repeat: no-repeat;   
         height: 100vh;
         color: white;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -78,10 +78,10 @@
         <a href="admin/login.php">Admin</a>
 
         <!-- Route to View (Does not require login) -->
-        <a href="gate_register/index.php">Gate Register</a>
+        <a href="gate_register/index.php" target="_blank" rel="noreferrer" >Gate Register</a>
 
         <!-- Route to Scanner page (No need of Login) -->
-        <a href="scanner_page/index.php">Scanner </a>
+        <a href="scanner_page/index.php" target="_blank" rel="noreferrer" >Scanner </a>
     </div>
 </body>
 </html>

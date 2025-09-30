@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 
 //http://localhost:3000/initialize_db.php
 
-$servername = "localhost";
+$servername = "localhost";  //"127.0.0.1:3307";
 $username = "root"; // Default XAMPP username
 $password = "";
 $dbname = "lib_db";
@@ -61,7 +61,7 @@ if (!file_exists($flag_file)) {
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1",
 
         "CREATE TABLE IF NOT EXISTS staff (
-            rollnum VARCHAR(20) NOT NULL,
+            rollnum VARCHAR(20) NOT NULL UNIQUE,
             name VARCHAR(100) NOT NULL,
             title ENUM('Sir', 'Madam') NOT NULL,  
             branch VARCHAR(20) NOT NULL,
@@ -70,7 +70,7 @@ if (!file_exists($flag_file)) {
 
 
         "CREATE TABLE IF NOT EXISTS student (
-            rollnum VARCHAR(15) NOT NULL,
+            rollnum VARCHAR(15) NOT NULL UNIQUE,
             name VARCHAR(100) NOT NULL,
             year INT(5) NOT NULL,
             branch VARCHAR(20) NOT NULL,
