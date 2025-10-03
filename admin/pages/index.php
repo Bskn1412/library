@@ -2,6 +2,7 @@
 include('../config/session_check.php');
 include(__DIR__ . '/../../dbconn.php');
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,15 +60,67 @@ include(__DIR__ . '/../../dbconn.php');
       height: 100%;
       border: none;
     }
-    a{
-      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      text-decoration: none;
-      font-size: 20px;
-      color:rgb(248, 17, 17);
-      margin-left: 30px;
-      letter-spacing: .1rem;
-    }
   
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+  .container {
+    flex-direction: column;
+    height: 100vh; /* full viewport */
+  }
+
+  .top {
+    height: auto;
+    min-height: 80px;
+  }
+
+  .bottom {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* stack left & right */
+  }
+
+  .left {
+    width: 100%;
+    min-height: 200px;
+  }
+
+  .right {
+    flex: 1; /* take remaining space */
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .right iframe {
+    height: 100%; /* fill parent */
+    width: 100%;
+  }
+}
+
+/* Small Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .top {
+    min-height: 60px;
+  }
+
+  .left {
+    min-height: 150px;
+  }
+
+  .right {
+    padding: 8px;
+  }
+
+  .right iframe {
+    height: 100%;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -84,6 +137,5 @@ include(__DIR__ . '/../../dbconn.php');
       </div>
     </div>
   </div>
-  <a href="../logout.php">Logout</a>
 </body>
 </html>
