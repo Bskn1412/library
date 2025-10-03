@@ -4,6 +4,9 @@
 
 body{
 	background-color: rgb(38, 35, 35);
+	color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 #menu ul li a{
@@ -49,9 +52,9 @@ body{
 	align-items: center;
 }
 .img img {
-  max-height:950px ;
-  max-width: 920px;
-	border-radius: 1rem;
+  	max-height:650px ;
+  	max-width: 620px;
+  	border-radius: 1rem;
 }
 
 .old,.new{
@@ -63,39 +66,81 @@ body{
 	color: white;
 	letter-spacing: 1px;
     height: 100%;
-
 }
 
 .progress{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: row;
-	border: 2px solid orange;
-	gap: 40px;
-	width: 107rem;
-	height: 30rem;
-	background-color: rgba(0, 0, 0, 0.5);
-	border-radius: 10px;
-	margin-top: 20px;
-	padding: 20px;
-	margin-bottom: 10px;
-	
+ 	display: flex;
+ 	justify-content: center;
+ 	align-items: flex-start;
+  	gap: 3rem;
+  	margin-top: 2rem;
+  	flex-wrap: wrap;
 }
 
 .count {
-    font-size: 24px;
+    font-size: 1.4rem;
     font-weight: bold;
-    color: #2c3e50;
-    background-color: #ecf0f1;
-    padding: 10px 20px;
-    border-radius: 8px;
-    display: inline-block;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-	margin-top: 20px;
+    color: #222;
 }
  .chart-container {
-      width: 100%;
-      max-width: 700px;
-      margin: 20px auto;
-    }
+	padding: 1rem;
+	box-shadow: 0 3px 10px rgba(171, 157, 157, 0.15);
+	align-items: center;
+	justify-self: center;
+	display: flex;
+}
+
+/* Tablets (769px - 1200px) */
+@media (max-width: 1200px) {
+  .progress {
+    gap: 2rem;
+  }
+  .chart-container {
+    width: 80% !important;
+    max-width: 500px;
+  }
+}
+
+/* Mobile (max 768px) */
+@media (max-width: 768px) {
+  #menu ul {
+    flex-direction: column;
+    gap: 0.8rem;
+	align-items: flex-start;
+	display: block;
+	transition: all 0.3s ease-in-out;
+  }
+
+  #head h1 {
+    font-size: 1.5rem;
+  }
+
+  .login {
+    padding: 1.2rem;
+  }
+
+  .form-container .part {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-container input[type="date"] {
+    width: 100%;
+  }
+
+  .progress {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .chart-container {
+    width: 100% !important;
+    max-width: 350px;
+
+  }
+
+  .count {
+    font-size: 1.2rem;
+  }
+}

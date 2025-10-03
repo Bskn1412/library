@@ -7,7 +7,7 @@ include(__DIR__ . '/../dbconn.php');
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Day-Wise Details</title>
+  <title>Statistics</title>
   <link rel="stylesheet" href="main.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="datepick.css" type="text/css" media="screen" />
 </head>
@@ -19,7 +19,7 @@ include(__DIR__ . '/../dbconn.php');
       <li><a href="facultystatus.php">Faculty Status</a></li>
       <li><a href="datepick.php">Day Wise Details</a></li>
       <li><a href="bdetails.php">Branch Wise Details</a></li>
-      <li><a href="status.php">Stats</a></li>
+      <li><a href="status.php">Staticstics</a></li>
     </ul>
   </div>
 
@@ -47,10 +47,10 @@ include(__DIR__ . '/../dbconn.php');
   <center>
     <h2 class="count"></h2>
     <div class="progress" >
-      <div class="chart-container" style="width: 400px; height: 400px;">
+      <div class="chart-container" style="width: 400px; height: 400px; justify-self: center; display: flex; align-items: center;">
         <canvas id="myChart"></canvas>
       </div>
-      <div class="chart-container" style="width: 600px; height: 400px; margin-top: 15rem;">
+      <div class="chart-container" style="width: 600px; height: 400px;">
         <canvas id="barChart"></canvas>
       </div>
     </div>

@@ -32,7 +32,11 @@ if (isset($_POST['statussubmit'])) {
         <li><a href="facultystatus.php">Faculty Status</a></li>
         <li><a href="datepick.php">Day Wise Details</a></li>
         <li><a href="bdetails.php">Branch Wise Details</a></li>
+<<<<<<< HEAD
         <li><a href="status.php">Stats</a></li>
+=======
+        <li><a href="status.php">Statistics</a></li>
+>>>>>>> b7afbc2 (Some updates..!)
     </ul>
 </div>
 
