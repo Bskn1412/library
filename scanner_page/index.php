@@ -4,6 +4,7 @@ include(__DIR__ . '/../dbconn.php');
 // Start PHP session if needed
 session_start();
 $data = [
+  [ "img" => "1.jpg",  "quote" => "Library, a place which worth a thousand schools – BSKN" ],
   [ "img" => "3.jpg",  "quote" => "Books are a uniquely portable magic. – Stephen King" ],
   [ "img" => "5.jpg",  "quote" => "Reading is essential for those who seek to rise above the ordinary. – Jim Rohn" ],
   [ "img" => "6.jpg",  "quote" => "A room without books is like a body without a soul. – Cicero" ],
@@ -94,9 +95,19 @@ $data = [
           <button type="submit" id="updateLibraryBtn"> Update </button>
       </li>
     </ul>
+  <div class="hname">
+   <a href="https://www.gecgudlavalleru.ac.in/" target="_blank" rel="noreferrer" ><img src="./assets/logoo.png" alt="logo"></a>
 
-   <a href="https://www.gecgudlavalleru.ac.in/" target="_blank" rel="noreferrer" ><img src="./assets/logo.png" alt="logo"></a>
-
+    <h2>Library and Information Center</h2>
+    </div>
+<!-- 
+        <div class="hname">
+          <a href="https://www.gecgudlavalleru.ac.in/" target="_blank" rel="noreferrer">
+            <img src="./assets/logo.jpg" alt="GEC Logo">
+            <span class="cname">SESHADRI RAO GUDLAVALLERU ENGINEERING COLLEGE</span>
+          </a>
+          <h2>Library & Information Center</h2>
+        </div>    -->
   <div class="visitor-box" onclick="window.open('../gate_register/status.php', '_blank', 'noopener,noreferrer')">
      <h2>Total Visitors Today</h2>
      <p>0</p>
@@ -118,7 +129,7 @@ $data = [
 
     <div class="list">
       <div class="item active">
-        <img src="./assets/fwdphotos/2.jpg" alt="Image 1">
+        <img src="./assets/fwdphotos/2.jpg" alt="Image 2">
         <div class="content">
           <p>Quote</p>
           <p>A library is not a luxury but one of the necessities of life. – Henry Ward Beecher</p>
@@ -166,7 +177,6 @@ $data = [
           <div class="sd2"><img src=""></div>
           <div class="sd3"><img src=""></div>
        </div>
-
     </div>
   </div>
 

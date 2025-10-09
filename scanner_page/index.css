@@ -48,18 +48,50 @@ header {
   align-items: center;
   padding: 10px 20px;
   max-width: auto;
-  margin: auto;
   gap: 20px;
 }
 
-header img {
-  height: 90px;
-  width: 105%;
-  justify-self: center;
+/* Container div */
+
+/* Header container */
+/* 🌐 Base styles (default for desktops ≥1367px) */
+.hname {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Logo + college name link */
+.hname a {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+}
+
+.hname img {
+  position: relative;
+  width: 90%;
+  height: auto;
+  left: 6%;
+  top: 10px;
   transition: transform 0.3s ease;
 }
-header img:hover {
-  transform: scale(1.03);
+
+.hname img:hover {
+  transform: scale(1.02);
+}
+
+/* Subheading */
+.hname h2 {
+  font-size: 1.8rem;
+  color: #29dede;
+  font-family: serif;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 /* Header Buttons*/
@@ -329,6 +361,7 @@ header img:hover {
   justify-content: space-between; /* distributes evenly */
   gap: 30rem; /* default for large screen */
   padding: 5px;
+  bottom: 0;
 }
 
 .stat{
@@ -395,12 +428,12 @@ header img:hover {
   margin-left: 20em;
 }
 
-@keyframes show2{
-  0%{
-    transform: translateY(-100%);
+@keyframes show2 {
+  0% {
+    transform: translateY(-100px);
     opacity: 0;
   }
-  100%{
+  100% {
     transform: translateY(0);
     opacity: 1;
   }
@@ -427,12 +460,20 @@ header img:hover {
     position: sticky;
   }
 
+  .hname img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
   .menu {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5rem;
     padding: 0;
-    margin-left: 5rem;
   }
 
   .menu li a,
@@ -440,10 +481,8 @@ header img:hover {
     font-size: 12px;
   }
 
-  header img {
-    width: 70%;
-    height: auto;
-    margin: 0 auto;
+  h2 {
+    font-size: 1.2rem;
   }
 
   .visitor-box {
@@ -476,7 +515,6 @@ header img:hover {
     max-height: 300px;
     max-width: 200px;
     position: relative;
-    left: -10px;
     margin: 0 auto;
     display: block;
   }
@@ -570,6 +608,12 @@ header img:hover {
     text-align: center;
     padding: 1em;
   }
+  .hname h2{
+    font-size: 1.3rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
 }
 
 
@@ -584,13 +628,24 @@ header img:hover {
     max-width: 90%;        /* keeps it inside screen */
   }
 
-  header img {
+   .hname {
+    flex-direction: column; /* stack logo and text */
+    text-align: center;
+  }
+
+  .hname h2{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .hname img {
     width: 100%;
-    height: auto;          /* keep aspect ratio */
-    display: block;        /* remove inline spacing */
-    margin: 0 auto;       /* center image */
+    height: auto;
+    display: block;
+    margin: 0 auto;
     position: relative;
-    left: 5%;
+    left: 0;
   }
 
   .visitor-box {
@@ -659,82 +714,79 @@ header img:hover {
 
 }
 
-/* ---------------- LARGE DESKTOPS (>=1366px) ---------------- 
+
+
+/*sgewrytewryweryretyureturteurtutu
 @media (min-width: 1367px) {
   header {
-    width: 40%;
-    margin: 2% auto 0 auto;
+    margin: 0 auto 1.5% 2%;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;  
   }
 
   header img {
-    width: 35rem;
+    width: 90%;
     height: auto;
+    display: block;
+    margin: 0 auto;
     position: relative;
-    left: 0;
-    padding: 0;
+    left: 5%;
+  }
+
+  .visitor-box {
+    margin: 1.5em auto;
+    padding: 1.5em;
+    max-width: 450px;  
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    left: 10%;
   }
 
   .thatha video {
-    width: 50%;
+    width: 50%;        
     height: auto;
-    max-height: 600px;
+    max-height: 550px;
     max-width: 400px;
     position: relative;
     left: 0;
   }
 
   .slider .list .item img {
-    width: 80%;
+    width: 100%;
     height: 100%;
   }
 
   .slider .list .item img::after {
-    width: 80%;
+    width: 100%;
     height: 100%;
   }
 
   .slider .list .item .content {
-    left: 35%;
+    left: 12%;
     width: 30%;
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .slider .list .item .content p:nth-child(2) {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .stat div {
     width: 70px;
-    height: 110px;
-  }
-
-  .scan form {
-    margin-left: 4em;
-  }
-
-  .thumbnail {
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
-    align-items: flex-start;
-    top: 80%;
-  }
-
-  .thumbnail .stat {
-    width: 20%;
+    height: 120px;
   }
 
   .thumbnail .scan {
-    width: 50%;
+    bottom: -25px;
+    transition: left 0.3s ease;
+    gap: clamp(55rem, 10vw, 30rem);
   }
 
   .arrows button {
     width: 35px;
     height: 35px;
   }
-
-  .slider .list .item::after {
-    left: 20rem;
-  }
 }
-

@@ -13,17 +13,37 @@ let itemActive = 0;
   const scanDelay = 10; // time in ms to wait after "typing" ends
 
   //Add Roll in Input after Scan
-  roll.addEventListener("keyup", (e) => {
-    clearTimeout(typingTimer);
-    typingTimer = setTimeout(() => {
-      const val = roll.value.trim();
-      if (val !== "" && val.length >=10) {
-         form.requestSubmit(); //It's automatically submits man..!! Isn't it great..!!
-         roll.value = ""; // clear input for next scan
-      }
+ roll.addEventListener("keyup", (e) => {
+  clearTimeout(typingTimer);
 
-    }, scanDelay);
-  });
+  // Detect manual Enter key press
+  if (e.key === "Enter") {
+    const val = roll.value.trim();
+
+    if (val.length === 10) {
+      form.requestSubmit();
+      roll.value = "";
+    } else {
+      // Invalid entry → clear and prevent submit
+      roll.value = "";
+      e.preventDefault();
+      //console.log("Invalid roll number — must be 10 digits!");
+    }
+
+    return; // stop further handling
+  }
+
+  // Scanner auto-submit after scanDelay
+  typingTimer = setTimeout(() => {
+    const val = roll.value.trim();
+
+    if (val !== "" && val.length >= 10) {
+      form.requestSubmit();
+      roll.value = "";
+    }
+  }, scanDelay);
+});
+
 
 console.log(items);
 
@@ -146,3 +166,39 @@ document.getElementById('updateLibraryBtn').addEventListener('click', function (
       }, 5000);
     });
 });
+
+
+// Smooth Animation for Scanned Input
+const messageBox = document.getElementById("messageBox");
+let messageQueue = [];
+let isShowing = false;
+
+function showMessage(msg, duration = 2000) {
+  messageQueue.push({ msg, duration });
+  if (!isShowing) processQueue();
+}
+
+async function processQueue() {
+  if (messageQueue.length === 0) return;
+
+  isShowing = true;
+  const { msg, duration } = messageQueue.shift();
+
+  messageBox.textContent = msg;
+  messageBox.style.display = "flex";
+  messageBox.style.animation = "show2 0.4s ease forwards";
+
+  // Wait for show animation + visible duration
+  await new Promise((resolve) => setTimeout(resolve, duration));
+
+  // Fade out smoothly
+  messageBox.style.animation = "show2 0.4s ease reverse forwards";
+
+  // Wait for fade-out animation to finish
+  await new Promise((resolve) => setTimeout(resolve, 400));
+
+  messageBox.style.display = "none";
+
+  isShowing = false;
+  processQueue(); // move to next message
+}

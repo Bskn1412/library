@@ -1,50 +1,81 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Gate Register</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link rel="stylesheet" href="main.css" type="text/css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gate Register</title>
+  <link rel="stylesheet" href="main.css" />
 </head>
 <body>
-	<!-- start menu -->
-	<div id="menu">
-		<ul type="none">
-			<li><a href="index.php">Home</a></li>
-			<li><a href="studentstatus.php">Student Status</a></li>
-			<li><a href="facultystatus.php">Faculty Status</a></li>
-			<li><a href="datepick.php">Day Wise Details</a></li>
-			<li><a href="bdetails.php">Branch Wise Details</a></li>
-			<li><a href="status.php">Statistics</a></li>
-		</ul>
-	</div>
-	<!-- end menu -->
-	<!-- start header -->
-	<div id="head">
-			<h1>Automatic Library Visitors Counter</h1>
-	</div>
-	<!-- end header -->
-	<!-- start page -->
-    <div class="hero">
-	  <div class="old" >
-       <div id="nam" style="color: yellow;">Developed By:</div><br>
-       <div id="nam1">P. Pavan Kumar</div>
-       <div id="nam1">A. Asif</div>
-       <div id="nam1">K. Balaji</div>
-       <div id="nam1">P. Mounika</div>
-       <div id="nam1">V. L. Prathyusha</div>
-      </div>
-	  <div class="img">
-	    <img src="images/lib.jpg" />
-      </div>
-	  <div class="new" >
-       <div id="nam" style="color: greenyellow;">Upgraded By:</div><br>
-	   <div id="nam1">B. Syam (22481A0539)</div>
-       <div id="nam1">A. Yaswanth Kiran (22481A0510)</div>
-       <div id="nam1">B. Sai Karthik Nehru (22481A0518)</div>
-      </div>
-	</div>
+  <!-- Navigation -->
+  <nav id="menu">
+    <ul>
+      <li><a href="index.php">Home</a></li>
+      <li><a href="studentstatus.php">Student Status</a></li>
+      <li><a href="facultystatus.php">Faculty Status</a></li>
+      <li><a href="datepick.php">Day Wise Details</a></li>
+      <li><a href="bdetails.php">Branch Wise Details</a></li>
+      <li><a href="status.php">Statistics</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header id="head">
+    <h1>Automatic Library Visitors Counter</h1>
+  </header>
+
+  <!-- Hero Section -->
+   <div class="hero-image">
+    <img src="images/gate.png" alt="Gate Image" />
+  </div>
+
+ <div class="hero">
+  <div class="team-slider">
+    <div class="slide developed active">
+      <h2>Developed By</h2>
+      <p>P. Pavan Kumar</p>
+      <p>A. Asif</p>
+      <p>K. Balaji</p>
+      <p>P. Mounika</p>
+      <p>V. L. Prathyusha</p>
+    </div>
+
+    <div class="slide upgraded">
+      <h2>Upgraded By</h2>
+      <p class="pp">B. Syam</p>
+      <p class="pp">A. Yaswanth Kiran</p>
+      <p class="pp">B. Sai Karthik Nehru</p>
+    </div>
+  </div>
+
+</div>
+
+
+  <footer>
+    <p>© 2025 Automatic Library Visitors Counter</p>
+  </footer>
+
+  <script>
+  const slides = document.querySelectorAll('.team-slider .slide');
+  let current = 0;
+
+  setInterval(() => {
+    const currentSlide = slides[current];
+    const nextSlide = slides[(current + 1) % slides.length];
+
+    currentSlide.classList.remove('active');
+    currentSlide.classList.add('exit');
+
+    nextSlide.classList.add('active');
+
+    setTimeout(() => {
+      currentSlide.classList.remove('exit');
+      nextSlide.classList.remove('exit');
+      current = (current + 1) % slides.length;
+    }, 1000); // match the CSS transition duration
+  }, 4000); // change every 4 seconds
+</script>
+
 
 </body>
 </html>

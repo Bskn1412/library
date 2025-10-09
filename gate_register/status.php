@@ -129,39 +129,44 @@ if (isset($_POST['datesubmit'])) {
     // Total count for percentage calculation
     const totalCount = data.reduce((acc, cur) => acc + cur.count, 0);
 
-    // Doughnut Chart with percentage labels
-    new Chart(doughnutCtx, {
-      type: 'doughnut',
-      data: {
-        labels: data.map(item => item.branch),
-        datasets: [{
-          label: 'Branch Wise Count',
-          data: data.map(item => item.count),
-          backgroundColor: backgroundColors.slice(0, data.length),
-          borderColor: borderColors.slice(0, data.length),
-          borderWidth: 3
-        }]
-      },
-      options: {
-        borderRadius: 2,
-        hoverBorderWidth: 3,
-        plugins: {
-          legend: { display: true },
-          datalabels: {
-            color: '#fff',
-            formatter: (value) => {
-              const percentage = (value / totalCount * 100).toFixed(1);
-              return percentage + '%';
-            },
-            font: {
-              weight: 'bold',
-              size: 14
-            }
-          }
+  // Doughnut Chart with percentage labels
+  new Chart(doughnutCtx, {
+  type: 'doughnut',
+  data: {
+    labels: data.map(item => item.branch),
+    datasets: [{
+      label: 'Branch Wise Count',
+      data: data.map(item => item.count),
+      backgroundColor: backgroundColors.slice(0, data.length),
+      borderColor: borderColors.slice(0, data.length),
+      borderWidth: 3
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+        labels: {
+          color: 'rgba(255,255,255,1)',
+          font: { weight: 'bold', size: 16 },
+          boxWidth: 20,
+          padding: 15
         }
       },
-      plugins: [ChartDataLabels]
-    });
+      datalabels: {
+        color: '#fff',
+        font: { weight: 'bold', size: 14 },
+        formatter: (value) => {
+          const percentage = ((value / totalCount) * 100).toFixed(1);
+          return percentage + '%';
+        }
+      }
+    }
+  },
+  plugins: [ChartDataLabels]
+});
 
     // Bar Chart with count numbers on top
     new Chart(barCtx, {
@@ -180,15 +185,13 @@ if (isset($_POST['datesubmit'])) {
         scales: {
           y: {
             beginAtZero: true,
-            title: { display: true, text: 'Total Visitors' },
-            border: {
-              display: true,
-              color: 'white',
-              width: 2
-            }
+            title: { display: true, text: 'Total Visitors', color: 'white', font: { size: 16, weight: 'bold' } },
+            ticks: { color: 'rgba(255, 255, 255, 1)', font: { size: 14, weight: 'bold' } }, // y-axis numbers in white
+            border: { display: true, color: 'white', width: 2 }
           },
           x: {
-            title: { display: true, text: 'Branch' },
+            title: { display: true, text: 'Branch', color: 'white', font: { size: 16, weight: 'bold' } },
+            ticks: { color: 'rgba(255, 255, 255, 1)', font: { size: 14, weight: 'bold' } }, // x-axis numbers in white
             border: {
               display: true,
               color: 'white',
