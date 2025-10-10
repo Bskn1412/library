@@ -48,6 +48,7 @@ if(isset($_POST['statussubmit'])) {
         <li><a href="datepick.php">Day Wise Details</a></li>
         <li><a href="bdetails.php">Branch Wise Details</a></li>
         <li><a href="status.php">Statistics</a></li>
+        <li><a href="backup.php">BackUp</a></li>
     </ul>
 </div>
 
